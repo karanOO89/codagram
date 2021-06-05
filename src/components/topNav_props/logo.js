@@ -1,7 +1,12 @@
+import "./logo.scss"
 const Logo = () => {
     return(
-        <div>
-          nav
+        <div class="logo">
+          <article>
+            <div>logo</div>
+            <div class= "logo_text">Codagram</div>
+          </article>
+
         </div>
     )
 }

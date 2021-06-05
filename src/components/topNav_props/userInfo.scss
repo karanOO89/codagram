@@ -1,0 +1,10 @@
+.userinfo {
+  padding-right: 1em;
+  article {
+    display: flex;
+    justify-content: space-evenly;
+    .user_text{
+        padding-left: .5em;
+    }
+  }
+}

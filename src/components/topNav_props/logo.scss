@@ -1,0 +1,10 @@
+.logo{
+    padding-left: 1em;
+    article{
+        display: flex;
+        justify-content: space-between;
+        .logo_text{
+            padding-left: .5em;
+        }
+    }
+}
