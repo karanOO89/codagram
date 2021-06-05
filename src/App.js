@@ -2,19 +2,19 @@ import "./App.scss";
 //import { Editor } from "draft-js";
 //import TextEditor from "./components/TextEditor";
 // import { BrowserRouter as Router, Link, Route } from "react-router-dom";
-import PostDialog from "./components/dialog_post"
-import TopNav from "./components/topNav";
-import PostBox from "./components/postBox";
-import MarkDownDemo from "./markdownDemo";
+//import PostDialog from "./components/dialog_post"
+//import TopNav from "./components/topNav";
+//import PostBox from "./components/postBox";
+//import MarkDownDemo from "./markdownDemo";
 import SearchResult from "./components/SearchResult";
 
 export default function App() {
   return (
     <div className="App">
-      <TopNav/>
+      {/* <TopNav/> */}
       <div className="postDialog"> 
-      <PostDialog />
-      <PostBox />
+      {/* <PostDialog />
+      <PostBox /> */}
       <SearchResult />
       </div>
 
