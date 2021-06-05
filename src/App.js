@@ -1,9 +1,16 @@
-import './App.css';
+import "./App.scss";
 
-function App() {
+// import { BrowserRouter as Router, Link, Route } from "react-router-dom";
+import PostDialog from "./components/dialog_post"
+function App(props) {
   return (
     <div className="App">
-      Hey there
+      <PostDialog />
+      {/* <Router>
+        <Link to="/postEditor" >Add a post</Link>
+        <Route path="/postEditor" component={PostEditor}></Route>
+      </Router> */}
+      
     </div>
   );
 }
