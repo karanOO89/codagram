@@ -1,9 +1,11 @@
 import "./App.scss";
+import { Editor } from "draft-js";
+import TextEditor from "./components/TextEditor";
 // import { BrowserRouter as Router, Link, Route } from "react-router-dom";
 import PostDialog from "./components/dialog_post"
 import TopNav from "./components/topNav";
 
-function App(props) {
+export default function App() {
   return (
     <div className="App">
       <TopNav/>
@@ -17,6 +19,9 @@ function App(props) {
       
     </div>
   );
+
+
+
 }
 
-export default App;
+
