@@ -69,7 +69,7 @@ export default function PostDialog(props) {
   return (
     <div>
       <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        Create
+        Add a Post
       </Button>
       <Dialog
         onClose={handleClose}

@@ -3,7 +3,7 @@ const Logo = () => {
     return(
         <div class="logo">
           <article>
-            <div>logo</div>
+            {/* <div>logo</div> */}
             <div class= "logo_text">Codagram</div>
           </article>
 
