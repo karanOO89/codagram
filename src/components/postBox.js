@@ -7,6 +7,7 @@ import PostText from "./postBox/postText";
 import PostImage from "./postBox/postImage";
 import PostToolbar from "./postBox/postToolbar";
 import UserInfo from "./topNav_props/userInfo";
+import PostNav from "./postBox/postNav";
 const PostBox = () => {
   return (
     <React.Fragment>
@@ -17,15 +18,16 @@ const PostBox = () => {
           style={{
             display: "flex",
             alignItems: "center",
-            justifyContent: "space-evenly",
+            justifyContent: "space-between",
             flexDirection: "column",
             backgroundColor: "rgb(190, 140, 73)",
             height: "25em",
             width: "35em",
-           
+            
           }}
         >
-        <UserInfo className ="avatar"/>
+         
+          <PostNav />
           <PostImage />
           <PostText />
           <PostToolbar />

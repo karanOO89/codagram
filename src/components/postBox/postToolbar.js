@@ -16,8 +16,9 @@ const PostToolbar = () => {
           style={{
             display: "flex",
             alignItems: "center",
-            justifyContent: "space-evenly",
+            justifyContent: "space-between",
             backgroundColor: "rgb(190, 255, 73)",
+            
             height: "3em",
           }}
         >
