@@ -5,7 +5,6 @@ import "./App.scss";
 import PostDialog from "./components/postDialog";
 import TopNav from "./components/topNav";
 import PostBox from "./components/postBox";
-import MarkDownDemo from "./markdownDemo";
 //import PostDialog from "./components/dialog_post"
 //import TopNav from "./components/topNav";
 //import PostBox from "./components/postBox";

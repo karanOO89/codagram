@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
+// import ReactDOM from "react-dom";
 import styled from "styled-components";
 import ReactMarkdown from "react-markdown";
 import Prism from "prismjs";
 import "./markdownDemo.scss";
-import "../node_modules/prismjs/themes/prism.css";
-import "../node_modules/prismjs/themes/prism-okaidia.css";
+import "../../node_modules/prismjs/themes/prism.css";
+import "../../node_modules/prismjs/themes/prism-okaidia.css";
 
 function BlankCodeBlock({ value }) {
   return <pre className="language-">{value || ""}</pre>;
@@ -30,55 +30,74 @@ export default function MarkDownDemo() {
 
   return (
     <StyledApp>
-      <StyledEditor>
-        <textarea
-          onChange={(e) => setMarkdown(e.target.value)}
-          value={markdown}
-        />
-      </StyledEditor>
+      <div className="preview">
+        <StyledPreview>
+          <article>
+          <ReactMarkdown source={markdown} renderers={{ code: CodeBlock }}>
+          
+            {markdown}
+          </ReactMarkdown>
+          </article>
+        </StyledPreview>
 
-      <StyledPreview>
-        <ReactMarkdown
-          source={markdown}
-          renderers={{ code: CodeBlock({ language: "html", value: markdown }) }}
-        >
-          {/* {CodeBlock ("javascript",{markdown})} */}
-          {/* {markdown} */}
-        </ReactMarkdown>
-      </StyledPreview>
+      </div>
+      <div></div>
+        <StyledEditor>
+          <textarea
+            onChange={(e) => setMarkdown(e.target.value)}
+            value={markdown}
+          />
+        </StyledEditor>
     </StyledApp>
   );
 }
 
 const StyledApp = styled.div`
   display: flex;
-  width: 100%;
-  height: 80vh;
-  margin-top: 5em;
+  background: green;
+  flex-direction: column;
+  justify-content:space-between;
+  align-items-center;
+  width: 75vh;
+  height: 50vh;
+  margin-top: 1em;
+  
 
   div {
     flex: 1;
     padding: 10px;
+  }
+  .edit{
+    
+    // padding-top:5em;
+    padding-bottom:.5em;
+    postion:fixed;
   }
 `;
 
 const StyledEditor = styled.div`
   background: #efefef;
 
+
+  width: 100%;
   textarea {
     width: 100%;
     padding: 5px;
-    height: 100%;
+    height: 10vh;
     border-radius: 5px;
     border: 1px solid #e2e2e2;
+    resize:none
   }
 `;
 
 const StyledPreview = styled.div`
-  background: #f8f8f8;
-
+  background: yellow;
+  height: 100%;
+  width: 100%;
+  overflow-wrap: break-word;
   pre {
     background: #333;
+    width: 100%;
     color: #eee;
     padding: 30px;
   }

@@ -14,8 +14,7 @@ const TextEditor = (props) => {
     <div
       style={{
         border: "1px solid black",
-        // padding: "2px",
-        // minHeight: "400px",
+        
       }}
     >
       <Editor
@@ -24,7 +23,7 @@ const TextEditor = (props) => {
         toolbarClassName="toolbar-class"
         editorStyle={props.editorStyle}
         toolbar={{
-          options: ["inline", "link", "emoji", "image"],
+          options: ["inline", "link", "emoji","image"],
           inline: {
             inDropdown: false,
             className: undefined,

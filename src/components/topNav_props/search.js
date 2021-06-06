@@ -1,5 +1,4 @@
 import TextField from "@material-ui/core/TextField";
-import Fragment from "react-dom";
 import "./search.scss";
 
 const Search = () => {

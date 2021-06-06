@@ -9,8 +9,6 @@ import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import Background from "./background";
 import Follow from "./follow";
-import UserInfo from "../topNav_props/userInfo";
-import { CenterFocusStrong } from "@material-ui/icons";
 import Avatar from "@material-ui/core/Avatar";
 import FollowersNumber from "./followersnumber";
 

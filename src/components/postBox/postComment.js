@@ -1,7 +1,4 @@
-import TextEditor from "../TextEditor";
-// import TextField from "@material-ui/core/TextField";
 import "./postComment.scss";
-import Link from "@material-ui/core/Link";
 import PostThreadDialog from "./postThreadDialog";
 
 const PostComment = () => {

@@ -11,10 +11,22 @@ import Typography from "@material-ui/core/Typography";
 
 import PostEditor from "./dialogPost/postEditor";
 
+import { makeStyles } from "@material-ui/core/styles";
+import MarkdownEdit from "../markdown/markdownEdit";
+
+const useStyles = makeStyles((theme) => ({
+  dialogPaper: {
+    minHeight: "50vh",
+    minWidth: "80vh",
+  
+  },
+}));
+
 const styles = (theme) => ({
   root: {
-    margin: 0,
+    margin: 0,  
     padding: theme.spacing(2),
+    
   },
   closeButton: {
     position: "absolute",
@@ -42,6 +54,7 @@ const DialogTitle = withStyles(styles)((props) => {
   );
 });
 
+
 const DialogContent = withStyles((theme) => ({
   root: {
     padding: theme.spacing(2),
@@ -56,7 +69,7 @@ const DialogActions = withStyles((theme) => ({
 }))(MuiDialogActions);
 
 export default function PostDialog(props) {
-    console.log(props.postEditor)
+  const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -75,11 +88,16 @@ export default function PostDialog(props) {
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
         open={open}
+        classes={{ paper: classes.dialogPaper }}
+        
       >
         <DialogTitle id="customized-dialog-title" onClose={handleClose}/>
         {/* </DialogTitle> */}
         <DialogContent dividers>
             <PostEditor />
+        </DialogContent>
+        <DialogContent dividers>
+        <MarkdownEdit />
         </DialogContent>
         <DialogActions>
           <Button autoFocus onClick={handleClose} color="primary">
