@@ -1,3 +1,4 @@
+import { React, useState, useEffect } from "react";
 import "./App.scss";
 //import { Editor } from "draft-js";
 //import TextEditor from "./components/TextEditor";
@@ -15,26 +16,42 @@ import SearchResult from "./components/SearchResult";
 
 
 export default function App() {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    fetch("/api")
+      .then((res) => res.json())
+      .then((data) => setData(data.message));
+  }, []);
+
   return (
     <div className="App">
-        <TopNav />
-     <div className="appBody">
-      <div className="postDialog">
-        <PostDialog />
-      </div>
-      <div>
-        <PostBox />
-      </div>
-      <div className="searchResult">
-        {/* <SearchResult /> */}
-      </div>
-      </div>
-
-      {/* <Router>
-        <Link to="/postEditor" >Add a post</Link>
-        <Route path="/postEditor" component={PostEditor}></Route>
-      </Router> */}
-      {/* <MarkDownDemo/> */}
+      <header className="App-header">
+        {/* <img src={logo} className="App-logo" alt="logo" /> */}
+        <p>{!data ? "Loading..." : data}</p>
+      </header>
     </div>
   );
+  // return (
+  //   <div className="App">
+  //       <TopNav />
+  //    <div className="appBody">
+  //     <div className="postDialog">
+  //       <PostDialog />
+  //     </div>
+  //     <div>
+  //       <PostBox />
+  //     </div>
+  //     <div className="searchResult">
+  //       {/* <SearchResult /> */}
+  //     </div>
+  //     </div>
+
+  //     {/* <Router>
+  //       <Link to="/postEditor" >Add a post</Link>
+  //       <Route path="/postEditor" component={PostEditor}></Route>
+  //     </Router> */}
+  //     {/* <MarkDownDemo/> */}
+  //   </div>
+  // );
 }
