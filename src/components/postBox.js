@@ -6,7 +6,6 @@ import "./postBox.scss";
 import PostText from "./postBox/postText";
 import PostImage from "./postBox/postImage";
 import PostToolbar from "./postBox/postToolbar";
-import UserInfo from "./topNav_props/userInfo";
 import PostNav from "./postBox/postNav";
 const PostBox = () => {
   return (
@@ -21,16 +20,15 @@ const PostBox = () => {
             justifyContent: "space-between",
             flexDirection: "column",
             backgroundColor: "rgb(190, 140, 73)",
-            height: "25em",
-            width: "35em",
-            
+            minHeight: "25em",
+            minWidth: "25em",
           }}
         >
-         
           <PostNav />
           <PostImage />
           <PostText />
-          <PostToolbar />
+          <PostToolbar />          
+          
         </Typography>
       </Container>
     </React.Fragment>

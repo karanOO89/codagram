@@ -1,11 +1,19 @@
 .App {
   display: flex;
   flex-direction: column;
-  // justify-content: center;
   align-items: center;
-  .postDialog{
-    padding-top: 4em;
+  // .postDialog{
+  //   padding-top: 4em;
     
+  // }
+  .appBody{
+    margin-top: 4em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .postDialog{
+    padding-bottom: 1em;
   }
 }
 

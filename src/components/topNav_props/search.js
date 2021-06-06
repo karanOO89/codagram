@@ -9,6 +9,7 @@ const Search = () => {
         id="outlined-multiline-flexible"
         label="Search"
         variant="filled"
+        size="small"
       />
     </div>
   );

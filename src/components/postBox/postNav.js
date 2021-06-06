@@ -18,15 +18,16 @@ const PostNav = () => {
             display: "flex",
             flexDirection:"row",
             alignItems: "center",
-            padding:"1em",
+            paddingTop:"1em",
+            top:"0",
             justifyContent: "space-between" ,
             // backgroundColor: "rgb(0,0,0,0)",
-            height: "3em",
+            
           }}
         >
-          <UserInfo/>
-         <Button size="small" variant="outlined" color="primary" >
-        follow<AddCircleOutlineOutlinedIcon/>
+          <UserInfo />
+         <Button size="small" variant="contained" color="primary" onClick={e => console.log("hey")}>
+        Follow
       </Button>
         </Typography>
       </Container>

@@ -1,0 +1,21 @@
+.postComment {
+    display: flex;
+    flex-direction: column;
+    width:100%;
+  .viewThread {
+    display: flex;
+    padding-bottom: .5em;
+    text-transform: lowercase;
+    font-style: italic;
+    font-family: fantasy;
+    justify-content: flex-end;
+    // position: relative;
+  }
+  .popComment{
+    display: flex;
+    padding-bottom: 1em;
+    text-transform: lowercase;
+    font-style: italic;
+    font-family: fantasy;
+  }
+}

@@ -12,12 +12,11 @@ function BlankCodeBlock({ value }) {
 }
 
 function CodeBlock({ language, value }) {
-  
   if (!language || !Prism.languages[language] || !value)
     return <BlankCodeBlock value={value} />;
 
-  var html = Prism.highlight(value, Prism.languages[language]);
-  var cls = "language-" + language;
+  const html = Prism.highlight(value, Prism.languages[language]);
+  const cls = "language-" + language;
 
   return (
     <pre className={cls}>
@@ -27,7 +26,7 @@ function CodeBlock({ language, value }) {
 }
 
 export default function MarkDownDemo() {
-  const [markdown, setMarkdown] = useState("");
+  const [markdown, setMarkdown] = useState("# sup");
 
   return (
     <StyledApp>
@@ -39,9 +38,12 @@ export default function MarkDownDemo() {
       </StyledEditor>
 
       <StyledPreview>
-        <ReactMarkdown source={markdown} renderers={{ code: CodeBlock({markdown}) }}>
+        <ReactMarkdown
+          source={markdown}
+          renderers={{ code: CodeBlock({ language: "html", value: markdown }) }}
+        >
           {/* {CodeBlock ("javascript",{markdown})} */}
-          {CodeBlock({markdown})} 
+          {/* {markdown} */}
         </ReactMarkdown>
       </StyledPreview>
     </StyledApp>
