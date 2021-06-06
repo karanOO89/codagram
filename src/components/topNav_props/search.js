@@ -1,5 +1,4 @@
 import TextField from "@material-ui/core/TextField";
-import Fragment from "react-dom";
 import "./search.scss";
 
 const Search = () => {
@@ -9,6 +8,7 @@ const Search = () => {
         id="outlined-multiline-flexible"
         label="Search"
         variant="filled"
+        size="small"
       />
     </div>
   );
