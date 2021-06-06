@@ -21,7 +21,7 @@ const PostBox = () => {
             flexDirection: "column",
             backgroundColor: "rgb(190, 140, 73)",
             minHeight: "25em",
-            minWidth: "25em",
+            minWidth: "35em",
           }}
         >
           <PostNav />

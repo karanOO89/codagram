@@ -1,0 +1,27 @@
+.searchBody {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 1rem;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  article {
+    display: flex;
+  }
+
+  .followers {
+    display: flex;
+  }
+
+  .follower {
+    padding-right: 1rem;
+  }
+
+  .user_text {
+    padding: 0.5em;
+  }
+}

@@ -6,6 +6,10 @@ import PostDialog from "./components/postDialog";
 import TopNav from "./components/topNav";
 import PostBox from "./components/postBox";
 import MarkDownDemo from "./markdownDemo";
+//import PostDialog from "./components/dialog_post"
+//import TopNav from "./components/topNav";
+//import PostBox from "./components/postBox";
+//import MarkDownDemo from "./markdownDemo";
 import SearchResult from "./components/SearchResult";
 
 
@@ -21,9 +25,9 @@ export default function App() {
       <div>
         <PostBox />
       </div>
-      {/* <div>
-        <SearchResult />
-      </div> */}
+      <div className="searchResult">
+        {/* <SearchResult /> */}
+      </div>
       </div>
 
       {/* <Router>
