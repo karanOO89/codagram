@@ -6,8 +6,9 @@ const SearchResult = () => {
 
   return (
     <div>      
-      <Background />
+      
       <SingleSearch />
+
     </div>
   )
 }
