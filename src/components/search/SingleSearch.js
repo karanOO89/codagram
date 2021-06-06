@@ -12,6 +12,7 @@ import Follow from "./follow";
 import UserInfo from "../topNav_props/userInfo";
 import { CenterFocusStrong } from "@material-ui/icons";
 import Avatar from "@material-ui/core/Avatar";
+import FollowersNumber from "./followersnumber";
 
 const SingleSearch = () => {
   return (
@@ -28,20 +29,26 @@ const SingleSearch = () => {
           height: '20vh',
          }}>
         <Typography component="div">
-         <div class="searchBody">
-           <div >
-           <div class="username">
-            <article>
-              {/* <div>logo</div> */}
-              <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-              <div class ="user_text">username</div>
-            </article>
+        
+          <div class="searchBody">
+            <div class="header">
+              <div class="username">
+                <article>
+                  {/* <div>logo</div> */}
+                  <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                  <div class ="user_text">username</div>
+                </article>
+              </div>
+              <div>
+                <Follow />
+              </div>
+            </div> 
+            <div class="footer">
+              <FollowersNumber />
+            </div>
           </div>
-           </div>
-           <div>
-             <Follow />
-           </div>
-         </div>
+        
+        
         </Typography>
       </Container>
     </div>

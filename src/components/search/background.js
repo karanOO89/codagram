@@ -9,7 +9,7 @@ const Background = () => {
       <Container maxWidth="sm"
         style={{ 
           backgroundColor: '#aaa',
-          height: '15vh',
+          height: '10vh',
           padding: '0px',
           }}
       />

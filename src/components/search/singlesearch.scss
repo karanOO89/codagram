@@ -1,15 +1,28 @@
 .searchBody{
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
   padding-top: 1rem;
 }
  
-.username {
-  article {
-    display: flex;
-    justify-content: space-evenly;
-    .user_text{
-        padding: .5em;
-    }
-  }
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+article {
+  display: flex;
+}
+
+.followers {
+  display: flex;
+
+}
+
+.follower {
+  padding-right: 1rem;
+}
+
+.user_text{
+  padding: .5em;
 }
