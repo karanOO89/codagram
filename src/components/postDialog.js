@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
@@ -12,21 +12,18 @@ import Typography from "@material-ui/core/Typography";
 import PostEditor from "./dialogPost/postEditor";
 
 import { makeStyles } from "@material-ui/core/styles";
-import MarkdownEdit from "../markdown/markdownEdit";
 
 const useStyles = makeStyles((theme) => ({
   dialogPaper: {
     minHeight: "50vh",
     minWidth: "80vh",
-  
   },
 }));
 
 const styles = (theme) => ({
   root: {
-    margin: 0,  
+    margin: 0,
     padding: theme.spacing(2),
-    
   },
   closeButton: {
     position: "absolute",
@@ -54,7 +51,6 @@ const DialogTitle = withStyles(styles)((props) => {
   );
 });
 
-
 const DialogContent = withStyles((theme) => ({
   root: {
     padding: theme.spacing(2),
@@ -69,6 +65,8 @@ const DialogActions = withStyles((theme) => ({
 }))(MuiDialogActions);
 
 export default function PostDialog(props) {
+  const [markdown, setMarkdown] = useState("# sup");
+
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -78,7 +76,7 @@ export default function PostDialog(props) {
   const handleClose = () => {
     setOpen(false);
   };
-
+  console.log("post", props);
   return (
     <div>
       <Button variant="outlined" color="primary" onClick={handleClickOpen}>
@@ -89,20 +87,19 @@ export default function PostDialog(props) {
         aria-labelledby="customized-dialog-title"
         open={open}
         classes={{ paper: classes.dialogPaper }}
-        
       >
-        <DialogTitle id="customized-dialog-title" onClose={handleClose}/>
+        <DialogTitle id="customized-dialog-title" onClose={handleClose} />
         {/* </DialogTitle> */}
         <DialogContent dividers>
-            <PostEditor />
+          <PostEditor markdown={markdown} setMarkdown={setMarkdown} />
         </DialogContent>
-        <DialogContent dividers>
-        <MarkdownEdit />
-        </DialogContent>
+
         <DialogActions>
-          <Button autoFocus onClick={handleClose} color="primary">
-            Submit
-          </Button>
+          <form method="POST" action="/post">
+            <Button autoFocus color="primary" type="submit">
+              Submit
+            </Button>
+          </form>
         </DialogActions>
       </Dialog>
     </div>

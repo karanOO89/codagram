@@ -1,15 +1,16 @@
-import React from "react-dom";
-import './formTextField.scss';
-import TextEditor from "../TextEditor";
-import MarkDownDemo from "../../markdown/markdownDemo";
-// import Quill from "../quill";x
+import React from "react";
+import "./formTextField.scss";
+import MarkDown from "../../markdown/markdown";
 const FormTextfield = (props) => {
-  return <div>
+  console.log(props);
+  // const [markdown,setMarkdown] = useState("# sup")
+  return (
+    <div>
       <form>
-    {/* <TextEditor editorStyle={{width:"100%",height:"300px"}}/> */}
-    <MarkDownDemo/>
-    {/* <Quill/> */}
-</form>
-  </div>;
+        {/* <TextEditor editorStyle={{width:"100%",height:"300px"}}/> */}
+        <MarkDown markdown={props.markdown} setMarkdown={props.setMarkdown} />
+      </form>
+    </div>
+  );
 };
 export default FormTextfield;

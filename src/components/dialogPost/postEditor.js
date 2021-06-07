@@ -1,14 +1,16 @@
-import { React} from "react-dom";
+import React,{ useState} from "react";
 import FormTextfield from "./formTextField";
 import Box from "@material-ui/core/Box";
 
 import "./postEditor.scss";
 
-const PostEditor = () => {
+const PostEditor = (props) => {
+  // const [markdown, setMarkdown] = useState("# sup") 
+
   return (
     <div className="box">
       <Box color="text.primary">
-        <FormTextfield />
+        <FormTextfield markdown={props.markdown} setMarkdown={props.setMarkdown}/>
       </Box>
     </div>
    
