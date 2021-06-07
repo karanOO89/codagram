@@ -8,6 +8,8 @@ import MuiDialogActions from "@material-ui/core/DialogActions";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
+import axios from "axios";
+
 
 import PostEditor from "./dialogPost/postEditor";
 
@@ -65,6 +67,7 @@ const DialogActions = withStyles((theme) => ({
 }))(MuiDialogActions);
 
 export default function PostDialog(props) {
+  const [data, setData] = useState(null);
   const [markdown, setMarkdown] = useState("# sup");
 
   const classes = useStyles();
@@ -76,7 +79,12 @@ export default function PostDialog(props) {
   const handleClose = () => {
     setOpen(false);
   };
-  console.log("post", props);
+  const postInsert =() =>{
+    axios.post("/post", {
+      message: markdown,
+    })
+    .then((data) => setData(data.message));
+  }
   return (
     <div>
       <Button variant="outlined" color="primary" onClick={handleClickOpen}>
@@ -95,11 +103,9 @@ export default function PostDialog(props) {
         </DialogContent>
 
         <DialogActions>
-          <form method="POST" action="/post">
-            <Button autoFocus color="primary" type="submit">
+            <Button autoFocus color="primary" onClick={postInsert}>
               Submit
             </Button>
-          </form>
         </DialogActions>
       </Dialog>
     </div>

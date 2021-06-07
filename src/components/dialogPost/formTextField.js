@@ -21,7 +21,6 @@ const components = {
   },
 };
 const FormTextfield = (props) => {
-  console.log(props);
 
   return (
     <StyledApp>

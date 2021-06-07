@@ -12,44 +12,26 @@ import PostBox from "./components/postBox";
 //import MarkDownDemo from "./markdownDemo";
 import SearchResult from "./components/SearchResult";
 
-
-
 export default function App() {
-  const [data, setData] = useState(null);
 
-  useEffect(() => {
-    fetch("/api")
-      .then((res) => res.json())
-      .then((data) => setData(data.message));
-  }, []);
 
-  // return (
-  //   <div className="App">
-  //    
-  //   </div>
-  // );
-  return (
+    
+
+   return (
     <div className="App">
-      
-        <TopNav />
-     <div className="appBody">
-      <div className="postDialog">
-      {/* {!data ? "Loading..." : data} */}
-        <PostDialog />
-      </div>
-      <div>
-        <PostBox />
-      </div>
-      <div className="searchResult">
-        {/* <SearchResult /> */}
-      </div>
+      <TopNav />
+      <div className="appBody">
+        <div className="postDialog">
+          {/* {!data ? "Loading..." : data} */}
+          <PostDialog  />
+        </div>
+        <div>
+          <PostBox />
+        </div>
+        <div className="searchResult">{/* <SearchResult /> */}</div>
       </div>
 
-      {/* <Router>
-        <Link to="/postEditor" >Add a post</Link>
-        <Route path="/postEditor" component={PostEditor}></Route>
-      </Router> */}
-      {/* <MarkDownDemo/> */}
+     
     </div>
   );
 }
