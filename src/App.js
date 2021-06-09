@@ -6,33 +6,34 @@ import "./App.scss";
 import PostDialog from "./components/postDialog";
 import TopNav from "./components/topNav";
 import PostBox from "./components/postBox";
-//import PostDialog from "./components/dialog_post"
-//import TopNav from "./components/topNav";
-//import PostBox from "./components/postBox";
-//import MarkDownDemo from "./markdownDemo";
 import SearchResult from "./components/SearchResult";
+import PostContainer from "./components/postContainer";
+import axios from "axios";
 
 export default function App() {
+  const [postData, setPostData] = useState([]);
 
+  useEffect(() => {
+    axios.get("/post").then((res) => {
+      setPostData([...res.data]);
+    });
+  }, []);
 
-    
+  // console.log("postdata", postData);
 
-   return (
+  return (
     <div className="App">
       <TopNav />
       <div className="appBody">
         <div className="postDialog">
           {/* {!data ? "Loading..." : data} */}
-          <PostDialog  />
+          <PostDialog setPostData={setPostData} />
         </div>
         <div>
-          <PostBox />
-
+          <PostContainer postData={postData} />
         </div>
         <div className="searchResult">{/* <SearchResult /> */}</div>
       </div>
-
-     
     </div>
   );
 }

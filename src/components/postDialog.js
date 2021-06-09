@@ -70,10 +70,10 @@ const DialogActions = withStyles((theme) => ({
 export default function PostDialog(props) {
   const [data, setData] = useState(null);
   const [files, setFiles] = useState([]);
-  console.log("hey take your files away !!!!!!!!!!!!", files);
+  // console.log("hey take your files away !!!!!!!!!!!!", files);
 
   const [markdown, setMarkdown] = useState("");
-  console.log("markdownnnnn~~~~~~~~~~~~~~`", markdown);
+  // console.log("markdownnnnn~~~~~~~~~~~~~~`", markdown);
 
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
@@ -116,9 +116,13 @@ export default function PostDialog(props) {
       headers: {
         "Content-Type": "multipart/form-data",
       },
-    }).then((data) => {
-      console.log(data);
-      setData(data.msg);
+    }).then((res) => {
+      // console.log("shjxxxxxxxxxxxx",res);
+
+      props.setPostData(prev=>[...prev, res.data]);
+      
+      // setData(data.msg);
+      handleClose();
     });
   };
   return (

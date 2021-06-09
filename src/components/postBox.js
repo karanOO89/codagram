@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
@@ -7,7 +7,10 @@ import PostText from "./postBox/postText";
 import PostImage from "./postBox/postImage";
 import PostToolbar from "./postBox/postToolbar";
 import PostNav from "./postBox/postNav";
-const PostBox = () => {
+import axios from 'axios';
+const PostBox = (props) => {
+ 
+  console.log("post daatatatat",props.postData)
   return (
     <React.Fragment>
       <CssBaseline />
