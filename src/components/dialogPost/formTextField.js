@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import "./formTextField.scss";
 import styled from "styled-components";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { okaidia } from "react-syntax-highlighter/dist/esm/styles/prism";
+import MultiImageUpload from "../upload/multiImageUpload";
+
 const components = {
   code({ node, inline, className, children, ...props }) {
     const match = /language-(\w+)/.exec(className || "");
+    console.log();
+    // console.log(children)
     return !inline && match ? (
       <SyntaxHighlighter
         style={okaidia}
@@ -21,17 +25,19 @@ const components = {
   },
 };
 const FormTextfield = (props) => {
-
   return (
     <StyledApp>
       <div className="preview" style={{ overflowWrap: "break-word" }}>
         <StyledPreview>
+          
           <ReactMarkdown children={props.markdown} components={components} />
+
         </StyledPreview>
       </div>
       <div>
         <StyledEditor>
           <textarea
+            placeholder="type here..."
             onChange={(e) => props.setMarkdown(e.target.value)}
             value={props.markdown}
           />
@@ -44,7 +50,7 @@ export default FormTextfield;
 
 const StyledApp = styled.div`
   display: flex;
-  background: green;
+  
   flex-direction: column;
   justify-content:space-between;
   align-items-center;
@@ -84,13 +90,13 @@ const StyledEditor = styled.div`
 const StyledPreview = styled.div`
   display: flex;
   flex-direction: column;
-  background: yellow;
+  background: #B4D4F2;
   height: 100%;
   width: 100%;
   overflow-wrap: break-word;
   pre {
     width: 100%;
-    padding: 30px;
+    // padding: px;
     overflow-x: auto;
     white-space: pre-wrap;
     white-space: -moz-pre-wrap;

@@ -10,10 +10,11 @@ import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
 import axios from "axios";
 
-
 import PostEditor from "./dialogPost/postEditor";
+import MultiImageUpload from "./upload/multiImageUpload";
 
 import { makeStyles } from "@material-ui/core/styles";
+import { ContentState } from "react-draft-wysiwyg";
 
 const useStyles = makeStyles((theme) => ({
   dialogPaper: {
@@ -68,7 +69,11 @@ const DialogActions = withStyles((theme) => ({
 
 export default function PostDialog(props) {
   const [data, setData] = useState(null);
-  const [markdown, setMarkdown] = useState("# sup");
+  const [files, setFiles] = useState([]);
+  console.log("hey take your files away !!!!!!!!!!!!", files);
+
+  const [markdown, setMarkdown] = useState("");
+  console.log("markdownnnnn~~~~~~~~~~~~~~`", markdown);
 
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
@@ -79,12 +84,43 @@ export default function PostDialog(props) {
   const handleClose = () => {
     setOpen(false);
   };
-  const postInsert =() =>{
-    axios.post("/post", {
-      message: markdown,
-    })
-    .then((data) => setData(data.message));
-  }
+
+  const postInsert = () => {
+    const tags = [];
+    const message = [];
+    markdown
+      .replace(/\n/g, " ")
+      .split(" ")
+      .map((word) => {
+        if (word[0] === "#" && word.length > 1) {
+          tags.push(word.substr(1));
+        } else {
+          message.push(word);
+        }
+      });
+
+    const formData = new FormData();
+    formData.append("message", message.join(" "));
+    tags.forEach((tag) => {
+      formData.append("tags", tag);
+    });
+    files.forEach((file) => {
+      formData.append("images", file);
+    });
+
+    const Url = "/post";
+    axios({
+      method: "POST",
+      url: Url,
+      data: formData,
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    }).then((data) => {
+      console.log(data);
+      setData(data.msg);
+    });
+  };
   return (
     <div>
       <Button variant="outlined" color="primary" onClick={handleClickOpen}>
@@ -98,14 +134,21 @@ export default function PostDialog(props) {
       >
         <DialogTitle id="customized-dialog-title" onClose={handleClose} />
         {/* </DialogTitle> */}
+
+        <DialogContent dividers>
+          <MultiImageUpload files={files} setFiles={setFiles} />
+        </DialogContent>
+
         <DialogContent dividers>
           <PostEditor markdown={markdown} setMarkdown={setMarkdown} />
         </DialogContent>
 
         <DialogActions>
+          <form>
             <Button autoFocus color="primary" onClick={postInsert}>
               Submit
             </Button>
+          </form>
         </DialogActions>
       </Dialog>
     </div>

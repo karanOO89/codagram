@@ -27,6 +27,7 @@ export default function App() {
         </div>
         <div>
           <PostBox />
+
         </div>
         <div className="searchResult">{/* <SearchResult /> */}</div>
       </div>
