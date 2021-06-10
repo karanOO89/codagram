@@ -163,7 +163,6 @@ const PostThreadDialog = (props) => {
       method: "GET",
       url: Url,
     }).then((res) => {
-      console.log("hey fetched data from back-end");
       props.setCommentData([...res.data]);
     });
   }, []);

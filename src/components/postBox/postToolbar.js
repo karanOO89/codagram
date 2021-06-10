@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
@@ -7,9 +7,48 @@ import ShareTwoToneIcon from "@material-ui/icons/ShareTwoTone";
 import BookTwoToneIcon from "@material-ui/icons/BookTwoTone";
 import RestaurantTwoToneIcon from "@material-ui/icons/RestaurantTwoTone";
 import Link from "@material-ui/core/Link";
+import axios from "axios";
 import "./postToolbar.scss";
+
 import PostComment from "./postComment";
-const PostToolbar = () => {
+
+const PostToolbar = (props) => {
+  const [status, setStatus] = useState();
+  // console.log("status", status);
+
+  useEffect(() => {
+    const post_id = props.id;
+    // const Url = ;
+    axios.get(`/post/${post_id}/fav`).then((res) => {
+      // console.log("fav fetched again", res.data.favourite);
+      setStatus(res.data.favourite)
+    });
+  }, []);
+
+  const favInsert = () => {
+    const post_id = props.id;
+    axios({
+      method: "PUT",
+      url: `/post/${post_id}/fav`,
+      data: { status: true },
+    }).then(() => {
+      setStatus(true);
+      // console.log("fav fetched");
+    });
+  };
+
+  const favDelete = () => {
+    const post_id = props.id;
+    axios({
+      method: "PUT",
+      url: `/post/${post_id}/fav`,
+      data: { status: false },
+    }).then(() => {
+      setStatus(false);
+      // console.log("fav fetched");
+    });
+  };
+
   return (
     <React.Fragment>
       <CssBaseline />
@@ -30,13 +69,15 @@ const PostToolbar = () => {
           <div className="tool">
             <div className="toolUpper">
               <div>
-                <Link
-                  size="small"
-                  color="inherit"
-                  onClick={(e) => console.log("hey")}
-                >
-                  <FavoriteTwoToneIcon fontSize="small" />
-                </Link>
+                <div className={status ? "favTrue" : "favFalse"}>
+                  <Link
+                    size="small"
+                    color="inherit"
+                    onClick={status ? favDelete :  favInsert}
+                  >
+                    <FavoriteTwoToneIcon fontSize="small" />
+                  </Link>
+                </div>
 
                 <Link
                   size="small"
@@ -63,8 +104,7 @@ const PostToolbar = () => {
                 </Link>
               </div>
             </div>
-            <div>
-            </div>
+            <div></div>
           </div>
         </Typography>
       </Container>

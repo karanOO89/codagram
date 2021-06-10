@@ -15,14 +15,11 @@ export default function App(props) {
   const [commentMarkdown, setCommentMarkdown] = useState("");
 
   useEffect(() => {
-    
     axios.get("/post").then((res) => {
       setPostData([...res.data]);
     });
   }, []);
-  
-  console.log("postdata", postData);
- 
+
 
   return (
     <div className="App">
@@ -30,10 +27,20 @@ export default function App(props) {
       <div className="appBody">
         <div className="postDialog">
           {/* {!data ? "Loading..." : data} */}
-          <PostDialog setPostData={setPostData}  markdown = {markdown} setMarkdown ={setMarkdown} />
+          <PostDialog
+            setPostData={setPostData}
+            markdown={markdown}
+            setMarkdown={setMarkdown}
+          />
         </div>
         <div>
-          <PostContainer postData={postData} commentData={commentData} setCommentData={setCommentData} commentMarkdown = {commentMarkdown} setCommentMarkdown ={setCommentMarkdown} />
+          <PostContainer
+            postData={postData}
+            commentData={commentData}
+            setCommentData={setCommentData}
+            commentMarkdown={commentMarkdown}
+            setCommentMarkdown={setCommentMarkdown}
+          />
         </div>
         <div className="searchResult">{/* <SearchResult /> */}</div>
       </div>

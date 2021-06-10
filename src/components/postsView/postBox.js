@@ -44,7 +44,7 @@ const PostBox = (props) => {
           <PostImage imageArray={props.singlePost.image_url} />
           <PostText message={props.singlePost.post_text} />
           <PostCode code={props.singlePost.code} />
-          <PostToolbar likes={props.singlePost.total_likes} />
+          <PostToolbar  id={props.singlePost.id} likes={props.singlePost.total_likes} />
           <PostTags tags={props.singlePost.tags} />
           <PostComment
             id={props.singlePost.id}

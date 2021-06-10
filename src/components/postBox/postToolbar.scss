@@ -8,5 +8,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    .favTrue{
+      background-color: crimson;
+    }
+    .favFalse{
+      background-color: none;
+    }
   }
 }

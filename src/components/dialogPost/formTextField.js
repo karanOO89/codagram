@@ -4,7 +4,6 @@ import styled from "styled-components";
 import MarkdownView from "./markdownView";
 
 const FormTextfield = (props) => {
-  console.log(props)
   return (
     <StyledApp>
       <div className="preview" style={{ overflowWrap: "break-word" }}>

@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 const PostImage = (props) => {
+
   const settings = {
     dots: true,
     fade:true,
@@ -22,7 +23,7 @@ const PostImage = (props) => {
   //   });
   // });
   // }
-  console.log("asxhkjaasn", newImageArray);
+  // console.log("image", props.imageArray);  
 
   return (
     <div>
