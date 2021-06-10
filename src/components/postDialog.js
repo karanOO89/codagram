@@ -72,7 +72,7 @@ export default function PostDialog(props) {
   const [files, setFiles] = useState([]);
   // console.log("hey take your files away !!!!!!!!!!!!", files);
 
-  const [markdown, setMarkdown] = useState("");
+  // const [markdown, setMarkdown] = useState("");
   // console.log("markdownnnnn~~~~~~~~~~~~~~`", markdown);
 
   const classes = useStyles();
@@ -88,7 +88,7 @@ export default function PostDialog(props) {
   const postInsert = () => {
     const tags = [];
     const message = [];
-    markdown
+    props.markdown
       .replace(/\n/g, " ")
       .split(" ")
       .map((word) => {
@@ -98,9 +98,34 @@ export default function PostDialog(props) {
           message.push(word);
         }
       });
+    const matches = props.markdown.split("```");
+    const code = "```" + matches[1] + "```";
+    let new_code = "";
+    let x = 0;
+    code.split("").map((word, i, arr) => {
+      if (arr.length - 4 === i) {
+        new_code += "\n";
+        return;
+      } else if (word === "\n" && arr.length - 5 !== i) {
+        x = x + 1;
+        if (x >= 100) {
+          new_code += word +  x + " ";
+        }
+        else if (x >= 10) {
+          new_code += word + " " +x + " ";
+        }
+        else{
+
+          new_code += word + "  " + x + " ";
+        }
+      } else {
+        new_code += word;
+      }
+    });
 
     const formData = new FormData();
     formData.append("message", message.join(" "));
+    formData.append("code", new_code);
     tags.forEach((tag) => {
       formData.append("tags", tag);
     });
@@ -119,8 +144,8 @@ export default function PostDialog(props) {
     }).then((res) => {
       // console.log("shjxxxxxxxxxxxx",res);
 
-      props.setPostData(prev=>[...prev, res.data]);
-      
+      props.setPostData((prev) => [...prev, res.data]);
+
       // setData(data.msg);
       handleClose();
     });
@@ -144,7 +169,7 @@ export default function PostDialog(props) {
         </DialogContent>
 
         <DialogContent dividers>
-          <PostEditor markdown={markdown} setMarkdown={setMarkdown} />
+          <PostEditor markdown={props.markdown} setMarkdown={props.setMarkdown} />
         </DialogContent>
 
         <DialogActions>

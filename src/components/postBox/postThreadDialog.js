@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Link from "@material-ui/core/Link";
@@ -9,15 +9,19 @@ import MuiDialogActions from "@material-ui/core/DialogActions";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
+import PostEditor from "../dialogPost/postEditor";
 
 import { makeStyles } from "@material-ui/core/styles";
-import TextEditor from "../TextEditor";
+import "./postThreadDialog.scss";
+import CommentContainer from "../comments/commentContainer";
+import axios from "axios";
+import MultiImageUpload from "../upload/multiImageUpload";
 
 const useStyles = makeStyles((theme) => ({
   dialogPaper: {
     minHeight: "90vh",
     minWidth: "120vh",
-    maxWidth: "120vh",
+    // maxWidth: "120vh",
   },
 }));
 
@@ -83,6 +87,8 @@ const DialogActions = withStyles((theme) => ({
 }))(MuiDialogActions);
 
 const PostThreadDialog = (props) => {
+  const [commentFiles, setCommentFiles] = useState([]);
+
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -92,6 +98,75 @@ const PostThreadDialog = (props) => {
   const handleClose = () => {
     setOpen(false);
   };
+  const commentInsert = () => {
+    // const tags = [];
+    const message = [];
+    // props.markdown
+    //   .replace(/\n/g, " ")
+    //   .split(" ")
+    //   .map((word) => {
+    //     if (word[0] === "#" && word.length > 1) {
+    //       tags.push(word.substr(1));
+    //     } else {
+    //       message.push(word);
+    //     }
+    //   });
+    // commentMarkdown = {props.commentMarkdown} setCommentMarkdown ={props.setCommentMarkdown}
+    const matches = props.commentMarkdown.split("```");
+    const code = "```" + matches[1] + "```";
+    let new_code = "";
+    let x = 0;
+    code.split("").map((word, i, arr) => {
+      if (arr.length - 4 === i) {
+        new_code += "\n";
+        return;
+      } else if (word === "\n" && arr.length - 5 !== i) {
+        x = x + 1;
+        if (x >= 100) {
+          new_code += word + x + " ";
+        } else if (x >= 10) {
+          new_code += word + " " + x + " ";
+        } else {
+          new_code += word + "  " + x + " ";
+        }
+      } else {
+        new_code += word;
+      }
+    });
+    // tags.forEach((tag) => {
+    //   formData.append("tags", tag);
+    // });
+
+    const formData = new FormData();
+    formData.append("message", props.commentMarkdown);
+    formData.append("code", new_code);
+    commentFiles.forEach((file) => {
+      formData.append("images", file);
+    });
+    const Url = `/comment/${props.id}`;
+    axios({
+      method: "POST",
+      url: Url,
+      data: formData,
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    }).then((res) => {
+      // console.log("shjxxxxxxxxxxxx",res.data);
+
+      props.setCommentData((prev) => [...prev, res.data]);
+    });
+  };
+  useEffect(() => {
+    const Url = `/comment/${props.id}`;
+    axios({
+      method: "GET",
+      url: Url,
+    }).then((res) => {
+      console.log("hey fetched data from back-end");
+      props.setCommentData([...res.data]);
+    });
+  }, []);
 
   return (
     <div>
@@ -104,28 +179,55 @@ const PostThreadDialog = (props) => {
         aria-labelledby="customized-dialog-title"
         open={open}
       >
-        <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-          Thread Comments
-        </DialogTitle>
+            <DialogTitle id="customized-dialog-title" onClose={handleClose}>
+              Thread Comments
+            </DialogTitle>
+        <div className="threadDialog">
+          <div className="comments">
+            <DialogContent dividers>
+              {/* <div style={{ width: "100%", height: "220px"}}></div> */}
 
-        <DialogContent dividers>
-          <div style={{ width: "100%", height: "220px" }}></div>
-        </DialogContent>
-        <DialogContent dividers>
-          <div classes={{ paper: classes.editor }}>
-            <TextEditor editorStyle={{ width: "100%", height: "150px" }} />
+              <CommentContainer
+                commentData={props.commentData}
+                setCommentData={props.setCommentData}
+              />
+            </DialogContent>
           </div>
-        </DialogContent>
-        <DialogActions>
-          <Button
-            varient="outlined"
-            autoFocus
-            onClick={handleClose}
-            color="primary"
-          >
-            Submit
-          </Button>
-        </DialogActions>
+
+          <div className="editor">
+            <DialogContent dividers>
+              {/* <div style={{ width: "100%", height: "220px" }}></div> */}
+              <MultiImageUpload
+                files={commentFiles}
+                setFiles={setCommentFiles}
+              />
+            </DialogContent>
+            
+
+            <DialogContent dividers>
+              <div class= "postEditor">
+
+              <PostEditor
+                markdown={props.commentMarkdown}
+                setMarkdown={props.setCommentMarkdown}
+              />
+
+              </div>
+            </DialogContent>
+
+            <DialogActions>
+              <Button
+                varient="outlined"
+                autoFocus
+                onClick={commentInsert}
+                // onClick={handleClose}
+                color="primary"
+              >
+                Submit
+              </Button>
+            </DialogActions>
+          </div>
+        </div>
       </Dialog>
     </div>
   );

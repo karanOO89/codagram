@@ -1,38 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import "./formTextField.scss";
 import styled from "styled-components";
-import ReactMarkdown from "react-markdown";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { okaidia } from "react-syntax-highlighter/dist/esm/styles/prism";
-import MultiImageUpload from "../upload/multiImageUpload";
+import MarkdownView from "./markdownView";
 
-const components = {
-  code({ node, inline, className, children, ...props }) {
-    const match = /language-(\w+)/.exec(className || "");
-    console.log();
-    // console.log(children)
-    return !inline && match ? (
-      <SyntaxHighlighter
-        style={okaidia}
-        language={match[1]}
-        PreTag="div"
-        children={String(children).replace(/\n$/, "")}
-        {...props}
-      />
-    ) : (
-      <code className={className} {...props} />
-    );
-  },
-};
 const FormTextfield = (props) => {
+  console.log(props)
   return (
     <StyledApp>
       <div className="preview" style={{ overflowWrap: "break-word" }}>
-        <StyledPreview>
-          
-          <ReactMarkdown children={props.markdown} components={components} />
-
-        </StyledPreview>
+        <MarkdownView markdown={props.markdown} />
       </div>
       <div>
         <StyledEditor>
@@ -90,7 +66,7 @@ const StyledEditor = styled.div`
 const StyledPreview = styled.div`
   display: flex;
   flex-direction: column;
-  background: #B4D4F2;
+  background: #b4d4f2;
   height: 100%;
   width: 100%;
   overflow-wrap: break-word;

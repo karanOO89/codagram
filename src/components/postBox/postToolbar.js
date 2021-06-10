@@ -64,7 +64,6 @@ const PostToolbar = () => {
               </div>
             </div>
             <div>
-              <PostComment />
             </div>
           </div>
         </Typography>

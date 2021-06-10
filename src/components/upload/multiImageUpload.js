@@ -1,6 +1,5 @@
 import React, { useMemo, useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
-import axios from "axios";
 
 const baseStyle = {
   flex: 1,
@@ -64,16 +63,6 @@ const img = {
 export default function MultiImageUpload(props) {
   const files = [...props.files]
   
-  // const insertImages = () => {
-  //   console.log("here are your image mate!!!!!!!!",files)
-  //   const imageUrl = "/post/image-upload";
-  //   axios
-  //     .post(imageUrl, {
-  //       files: "",
-  //     })
-  //     // .then((data) => setData(data.message));
-  // };
-
   const {
     getRootProps,
     getInputProps,
@@ -118,7 +107,6 @@ export default function MultiImageUpload(props) {
 
   useEffect(
     () => () => {
-      // Make sure to revoke the data uris to avoid memory leaks
       files.forEach((file) => URL.revokeObjectURL(file.preview));
     },
     [files]
