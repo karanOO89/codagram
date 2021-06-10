@@ -13,6 +13,7 @@ import "./postToolbar.scss";
 import PostComment from "./postComment";
 
 const PostToolbar = (props) => {
+
   const [status, setStatus] = useState();
   // console.log("status", status);
 
@@ -24,6 +25,17 @@ const PostToolbar = (props) => {
       setStatus(res.data.favourite)
     });
   }, []);
+  const forkPost = () => {
+    const post_id = props.id;
+     axios({
+      method: "GET",
+      url: `/post`,
+      data: { status: true },
+    }).then(() => {
+      setStatus(true);
+      // console.log("fav fetched");
+    });
+  }
 
   const favInsert = () => {
     const post_id = props.id;
@@ -86,19 +98,19 @@ const PostToolbar = (props) => {
                 >
                   <ShareTwoToneIcon fontSize="small" />
                 </Link>
-                <Link
+                {/* <Link
                   size="small"
                   color="inherit"
                   onClick={(e) => console.log("hey")}
                 >
                   <BookTwoToneIcon fontSize="small" />
-                </Link>
+                </Link> */}
               </div>
               <div>
                 <Link
                   size="small"
                   color="inherit"
-                  onClick={(e) => console.log("hey")}
+                  onClick={forkPost}
                 >
                   <RestaurantTwoToneIcon fontSize="small" />
                 </Link>

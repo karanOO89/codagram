@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
     height: theme.spacing(3),
   },
 }));
-const UserInfo = () => {
+const UserInfo = (props) => {
   const classes = useStyles();
   return (
     <div class="userinfo">
@@ -21,7 +21,7 @@ const UserInfo = () => {
         </Link>
         <Link size="small" color="inherit" onClick={(e) => console.log("hey")}>
 
-          <div class="user_text">username</div>
+          <div class="user_text">{props.userInfo}</div>
         </Link>
 
       </article>

@@ -40,7 +40,7 @@ const PostBox = (props) => {
           // updated_at: "2021-06-09T04:42:07.281Z"
           // user_id: 1
         >
-          <PostNav />
+          <PostNav userInfo ={props.singlePost.user_id} />
           <PostImage imageArray={props.singlePost.image_url} />
           <PostText message={props.singlePost.post_text} />
           <PostCode code={props.singlePost.code} />

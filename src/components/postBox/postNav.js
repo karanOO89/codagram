@@ -6,7 +6,7 @@ import UserInfo from "../topNav_props/userInfo";
 import Button from "@material-ui/core/Button";
 
 
-const PostNav = () => {
+const PostNav = (props) => {
   return (
     <React.Fragment>
       <CssBaseline />
@@ -24,7 +24,7 @@ const PostNav = () => {
             
           }}
         >
-          <UserInfo />
+          <UserInfo userInfo ={props.userInfo}/>
          <Button size="small" variant="contained" color="primary" onClick={e => console.log("hey")}>
         Follow
       </Button>
