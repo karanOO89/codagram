@@ -35,7 +35,7 @@ const MarkdownView = (props) => {
 const StyledPreview = styled.div`
   display: flex;
   flex-direction: column;
-  background: #b4d4f2;
+  // background: #b4d4f2;
   height: 100%;
   width: 100%;
   overflow-wrap: break-word;

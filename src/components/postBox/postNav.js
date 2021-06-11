@@ -1,36 +1,25 @@
 import React from "react";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Typography from "@material-ui/core/Typography";
-import Container from "@material-ui/core/Container";
 import UserInfo from "../topNav_props/userInfo";
 import Button from "@material-ui/core/Button";
-
+import "./postNav.scss"
 
 const PostNav = (props) => {
   return (
-    <React.Fragment>
-      <CssBaseline />
-      <Container fixed>
-        <Typography
-          component="div"
-          style={{
-            display: "flex",
-            flexDirection:"row",
-            alignItems: "center",
-            paddingTop:"1em",
-            top:"0",
-            justifyContent: "space-between" ,
-            // backgroundColor: "rgb(0,0,0,0)",
-            
-          }}
+    <div className="postNav">
+      <div>
+        <UserInfo userInfo={props.userInfo} />
+      </div>
+      <div>
+        <Button
+          size="small"
+          variant="contained"
+          color="primary"
+          onClick={(e) => console.log("hey")}
         >
-          <UserInfo userInfo ={props.userInfo}/>
-         <Button size="small" variant="contained" color="primary" onClick={e => console.log("hey")}>
-        Follow
-      </Button>
-        </Typography>
-      </Container>
-    </React.Fragment>
+          Follow
+        </Button>
+      </div>
+    </div>
   );
 };
 

@@ -1,7 +1,9 @@
 .tool {
   display: flex;
-  flex-direction: column;
+  // flex-direction: column;
   justify-content: space-between;
+  padding-left: 2em;
+  padding-right: 2em;
 
   .toolUpper {
     padding-bottom: .5em;
@@ -9,7 +11,8 @@
     justify-content: space-between;
     align-items: center;
     .favTrue{
-      background-color: crimson;
+     color: crimson;
+    //  padding-right: 10px;
     }
     .favFalse{
       background-color: none;

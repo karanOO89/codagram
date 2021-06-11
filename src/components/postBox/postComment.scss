@@ -2,6 +2,11 @@
     display: flex;
     flex-direction: column;
     width:100%;
+    padding-top:.5em;
+    padding-bottom:.5em;
+    padding-left: 2em;
+    padding-right: 2em;
+    border-top: grey solid 1px;
   .viewThread {
     display: flex;
     padding-bottom: .5em;

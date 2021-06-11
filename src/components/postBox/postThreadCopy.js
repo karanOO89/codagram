@@ -27,8 +27,8 @@ const useStyles = makeStyles((theme) => ({
 
 const styles = (theme) => ({
   root: {
-    margin: 0,
-    padding: theme.spacing(2),
+    // margin: 0,
+    // padding: theme.spacing(2),
   },
   closeButton: {
     position: "absolute",
@@ -97,19 +97,6 @@ const PostThreadDialog = (props) => {
     setOpen(false);
   };
   const commentInsert = () => {
-    // const tags = [];
-    const message = [];
-    // props.markdown
-    //   .replace(/\n/g, " ")
-    //   .split(" ")
-    //   .map((word) => {
-    //     if (word[0] === "#" && word.length > 1) {
-    //       tags.push(word.substr(1));
-    //     } else {
-    //       message.push(word);
-    //     }
-    //   });
-    // commentMarkdown = {props.commentMarkdown} setCommentMarkdown ={props.setCommentMarkdown}
     const matches = props.commentMarkdown.split("```");
     const code = "```" + matches[1] + "```";
     let new_code = "";
@@ -131,9 +118,7 @@ const PostThreadDialog = (props) => {
         new_code += word;
       }
     });
-    // tags.forEach((tag) => {
-    //   formData.append("tags", tag);
-    // });
+  
 
     const formData = new FormData();
     formData.append("message", props.commentMarkdown);
@@ -150,11 +135,11 @@ const PostThreadDialog = (props) => {
         "Content-Type": "multipart/form-data",
       },
     }).then((res) => {
-      // console.log("shjxxxxxxxxxxxx",res.data);
 
       props.setCommentData((prev) => [...prev, res.data]);
     });
   };
+
   useEffect(() => {
     const Url = `/comment/${props.id}`;
     axios({
@@ -166,50 +151,59 @@ const PostThreadDialog = (props) => {
   }, []);
 
   return (
+    
     <div>
+      
       <Link color="inherit" onClick={handleClickOpen}>
         view thread ...
       </Link>
+      
       <Dialog
         classes={{ paper: classes.dialogPaper }}
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
         open={open}
       >
-        <DialogTitle id="customized-dialog-title" onClose={handleClose}>
+        {/* <DialogTitle id="customized-dialog-title" onClose={handleClose}>
           Thread Comments
-        </DialogTitle>
+        </DialogTitle> */}
+        
         <div className="threadDialog">
+      
           <div className="comments">
             <DialogContent dividers>
-              {/* <div style={{ width: "100%", height: "220px"}}></div> */}
 
               <CommentContainer
                 commentData={props.commentData}
                 setCommentData={props.setCommentData}
               />
+
             </DialogContent>
           </div>
 
           <div className="editor">
             <DialogContent dividers>
+
               <MultiImageUpload
                 files={commentFiles}
                 setFiles={setCommentFiles}
               />
+
             </DialogContent>
 
-            <DialogContent dividers>
               <div class="postEditor">
+            <DialogContent dividers>
+
                 <PostEditor
                   markdown={props.commentMarkdown}
                   setMarkdown={props.setCommentMarkdown}
-                  
                 />
-              </div>
-            </DialogContent>
 
+            </DialogContent>
+              </div>
+              <div class="submit-btn">
             <DialogActions>
+              
               <Button
                 varient="outlined"
                 autoFocus
@@ -219,9 +213,14 @@ const PostThreadDialog = (props) => {
               >
                 Submit
               </Button>
+            
             </DialogActions>
+            </div>
+         
           </div>
+        
         </div>
+      
       </Dialog>
     </div>
   );

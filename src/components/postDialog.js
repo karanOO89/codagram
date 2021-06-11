@@ -70,10 +70,6 @@ const DialogActions = withStyles((theme) => ({
 export default function PostDialog(props) {
   const [data, setData] = useState(null);
   const [files, setFiles] = useState([]);
-  // console.log("hey take your files away !!!!!!!!!!!!", files);
-
-  // const [markdown, setMarkdown] = useState("");
-  // console.log("markdownnnnn~~~~~~~~~~~~~~`", markdown);
 
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
@@ -99,7 +95,12 @@ export default function PostDialog(props) {
         }
       });
     const matches = props.markdown.split("```");
-    const code = "```" + matches[1] + "```";
+    let code = "";
+    if (matches[1]) {
+      code = "```" + matches[1] + "```";
+    }
+    console.log("code", code);
+
     let new_code = "";
     let x = 0;
     code.split("").map((word, i, arr) => {
@@ -109,13 +110,10 @@ export default function PostDialog(props) {
       } else if (word === "\n" && arr.length - 5 !== i) {
         x = x + 1;
         if (x >= 100) {
-          new_code += word +  x + " ";
-        }
-        else if (x >= 10) {
-          new_code += word + " " +x + " ";
-        }
-        else{
-
+          new_code += word + x + " ";
+        } else if (x >= 10) {
+          new_code += word + " " + x + " ";
+        } else {
           new_code += word + "  " + x + " ";
         }
       } else {
@@ -126,13 +124,16 @@ export default function PostDialog(props) {
     const formData = new FormData();
     formData.append("message", message.join(" "));
     formData.append("code", new_code);
-    formData.append("redirect_code",code)
+    formData.append("redirect_code", code);
     tags.forEach((tag) => {
       formData.append("tags", tag);
     });
-    files.forEach((file) => {
-      formData.append("images", file);
-    });
+    // console.log(files)
+    if (files.length >  0) {
+      files.forEach((file) => {
+        formData.append("images", file);
+      });
+    }
 
     const Url = "/post";
     axios({
@@ -143,11 +144,8 @@ export default function PostDialog(props) {
         "Content-Type": "multipart/form-data",
       },
     }).then((res) => {
-      // console.log("shjxxxxxxxxxxxx",res);
-
       props.setPostData((prev) => [...prev, res.data]);
 
-      // setData(data.msg);
       handleClose();
     });
   };
@@ -170,7 +168,10 @@ export default function PostDialog(props) {
         </DialogContent>
 
         <DialogContent dividers>
-          <PostEditor markdown={props.markdown} setMarkdown={props.setMarkdown} />
+          <PostEditor
+            markdown={props.markdown}
+            setMarkdown={props.setMarkdown}
+          />
         </DialogContent>
 
         <DialogActions>

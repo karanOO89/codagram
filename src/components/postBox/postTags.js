@@ -1,3 +1,4 @@
+import "./postTags.scss"
 const PostTags = (props) => {
 //   console.log("tagss", props.tags);
   return (
