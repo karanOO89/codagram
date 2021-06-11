@@ -1,4 +1,5 @@
 import { React, useState, useEffect } from "react";
+import ChatApp from "./components/chatApp"; 
 import "./App.scss";
 //import { Editor } from "draft-js";
 //import TextEditor from "./components/TextEditor";
@@ -8,6 +9,10 @@ import TopNav from "./components/topNav";
 import SearchResult from "./components/SearchResult";
 import axios from "axios";
 import PostContainer from "./components/postsView/postContainer";
+
+
+
+
 export default function App(props) {
   const [postData, setPostData] = useState([]);
   const [commentData, setCommentData] = useState([]);
@@ -44,6 +49,9 @@ export default function App(props) {
           />
         </div>
         <div className="searchResult">{/* <SearchResult /> */}</div>
+
+          <ChatApp/>
+
       </div>
     </div>
   );
