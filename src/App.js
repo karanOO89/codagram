@@ -8,6 +8,7 @@ import TopNav from "./components/topNav";
 import SearchResult from "./components/SearchResult";
 import axios from "axios";
 import PostContainer from "./components/postsView/postContainer";
+import SearchPage from "./components/searchNew/search";
 export default function App(props) {
   const [postData, setPostData] = useState([]);
   const [commentData, setCommentData] = useState([]);
@@ -21,7 +22,6 @@ export default function App(props) {
     });
   }, []);
 
-
   return (
     <div className="App">
       <TopNav />
@@ -34,16 +34,18 @@ export default function App(props) {
             setMarkdown={setMarkdown}
           />
         </div>
-        <div >
-          <PostContainer
+        <div>
+          {/* <PostContainer
             postData={postData}
             commentData={commentData}
             setCommentData={setCommentData}
             commentMarkdown={commentMarkdown}
             setCommentMarkdown={setCommentMarkdown}
-          />
+          /> */}
         </div>
-        <div className="searchResult">{/* <SearchResult /> */}</div>
+        <div>
+          <SearchPage />
+        </div>
       </div>
     </div>
   );
