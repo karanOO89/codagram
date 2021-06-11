@@ -16,6 +16,7 @@ export default function App(props) {
 
   useEffect(() => {
     axios.get("/post").then((res) => {
+      console.log(res.data);
       setPostData([...res.data]);
     });
   }, []);
@@ -33,7 +34,7 @@ export default function App(props) {
             setMarkdown={setMarkdown}
           />
         </div>
-        <div>
+        <div className="postContainer">
           <PostContainer
             postData={postData}
             commentData={commentData}

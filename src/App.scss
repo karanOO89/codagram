@@ -1,4 +1,5 @@
 .App {
+  
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,10 +8,16 @@
     
   // }
   .appBody{
+    // width:100%;
     margin-top: 4em;
     display: flex;
     flex-direction: column;
     align-items: center;
+    .postContainer{
+      
+      // width:100%;
+      background-color:blueviolet
+    }
   }
   .postDialog{
     padding-bottom: 1em;

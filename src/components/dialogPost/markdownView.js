@@ -23,10 +23,11 @@ const components = {
 };
 
 const MarkdownView = (props) => {
+  const url ="http://www.pythontutor.com/javascript.html#code=&mode=edit&origin=opt-frontend.js&py=js&rawInputLstJSON=%5B%5D"
   return (
     <div>
       <StyledPreview>
-        <ReactMarkdown children={props.markdown} components={components} />
+        <ReactMarkdown children={props.markdown} components={components} linkTarget={url} />
       </StyledPreview>
     </div>
   );

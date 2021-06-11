@@ -13,7 +13,6 @@ import "./postToolbar.scss";
 import PostComment from "./postComment";
 
 const PostToolbar = (props) => {
-
   const [status, setStatus] = useState();
   // console.log("status", status);
 
@@ -22,12 +21,12 @@ const PostToolbar = (props) => {
     // const Url = ;
     axios.get(`/post/${post_id}/fav`).then((res) => {
       // console.log("fav fetched again", res.data.favourite);
-      setStatus(res.data.favourite)
+      setStatus(res.data.favourite);
     });
   }, []);
   const forkPost = () => {
     const post_id = props.id;
-     axios({
+    axios({
       method: "GET",
       url: `/post`,
       data: { status: true },
@@ -35,7 +34,7 @@ const PostToolbar = (props) => {
       setStatus(true);
       // console.log("fav fetched");
     });
-  }
+  };
 
   const favInsert = () => {
     const post_id = props.id;
@@ -60,7 +59,12 @@ const PostToolbar = (props) => {
       // console.log("fav fetched");
     });
   };
-
+  const visitLink = () => {
+    const code = encodeURIComponent(props.code.slice(5,-3))
+    console.log(code)
+    let url=`http://www.pythontutor.com/javascript.html#code=${code}&mode=edit&origin=opt-frontend.js&py=js&rawInputLstJSON=%5B%5D`
+      window.open(url, "_blank")
+  };
   return (
     <React.Fragment>
       <CssBaseline />
@@ -85,17 +89,13 @@ const PostToolbar = (props) => {
                   <Link
                     size="small"
                     color="inherit"
-                    onClick={status ? favDelete :  favInsert}
+                    onClick={status ? favDelete : favInsert}
                   >
                     <FavoriteTwoToneIcon fontSize="small" />
                   </Link>
                 </div>
 
-                <Link
-                  size="small"
-                  color="inherit"
-                  onClick={(e) => console.log("hey")}
-                >
+                <Link size="small" color="inherit" onClick={visitLink}>
                   <ShareTwoToneIcon fontSize="small" />
                 </Link>
                 {/* <Link
@@ -107,11 +107,7 @@ const PostToolbar = (props) => {
                 </Link> */}
               </div>
               <div>
-                <Link
-                  size="small"
-                  color="inherit"
-                  onClick={forkPost}
-                >
+                <Link size="small" color="inherit" onClick={forkPost}>
                   <RestaurantTwoToneIcon fontSize="small" />
                 </Link>
               </div>

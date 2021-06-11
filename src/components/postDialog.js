@@ -126,6 +126,7 @@ export default function PostDialog(props) {
     const formData = new FormData();
     formData.append("message", message.join(" "));
     formData.append("code", new_code);
+    formData.append("redirect_code",code)
     tags.forEach((tag) => {
       formData.append("tags", tag);
     });

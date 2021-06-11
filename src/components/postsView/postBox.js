@@ -12,10 +12,11 @@ import PostCode from "../postBox/postCode";
 import PostTags from "../postBox/postTags";
 
 const PostBox = (props) => {
-  // console.log("total_likes",props.singlePost)
+  console.log("total_likes",props.singlePost)
   return (
-    <React.Fragment>
-      <CssBaseline />
+    // <React.Fragment>
+    //   <CssBaseline />
+    <div className="postBox">
       <Container fixed>
         <Typography
           component="div"
@@ -44,7 +45,7 @@ const PostBox = (props) => {
           <PostImage imageArray={props.singlePost.image_url} />
           <PostText message={props.singlePost.post_text} />
           <PostCode code={props.singlePost.code} />
-          <PostToolbar  id={props.singlePost.id} likes={props.singlePost.total_likes} />
+          <PostToolbar  id={props.singlePost.id} likes={props.singlePost.total_likes} code={props.singlePost.redirect_code} />
           <PostTags tags={props.singlePost.tags} />
           <PostComment
             id={props.singlePost.id}
@@ -54,7 +55,8 @@ const PostBox = (props) => {
           />
         </Typography>
       </Container>
-    </React.Fragment>
+      </div>
+    // </React.Fragment>
   );
 };
 
