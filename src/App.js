@@ -35,17 +35,17 @@ export default function App(props) {
           />
         </div>
         <div>
-          {/* <PostContainer
+          <PostContainer
             postData={postData}
             commentData={commentData}
             setCommentData={setCommentData}
             commentMarkdown={commentMarkdown}
             setCommentMarkdown={setCommentMarkdown}
-          /> */}
+          />
         </div>
-        <div>
+        {/* <div>
           <SearchPage />
-        </div>
+        </div> */}
       </div>
     </div>
   );

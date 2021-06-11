@@ -17,4 +17,4 @@ const SearchText = ({countryList=[]}) => {
   );
 }
 
-export default CountryList
+export default SearchText
