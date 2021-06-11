@@ -1,28 +1,17 @@
 .threadDialog{
     display: flex;
     // flex-direction: column;
+
     .editor{
-        background-color: greenyellow;
-        position: fixed;
-        display: block;
-        bottom: 5%;
-        right: 100px;
-        margin: -100px 0 0 0;
-        height: 650px;
-        width: 650px;
-        // .postEditor{
-        //     // position: fixed;
-        //     // display: block;
-        // }
+    //    background-color: indianred;
+       width:50%;
+       border-left:solid grey 1px;
+    //    .postEditor{
+    //     // width:300px
+    //    }
     }
     .comments{
-        // background-color: hotpink;
-        // background-color: greenyellow;
-        // position: fixed;
-        display: block;
-        bottom: 5%;
-        // margin: -100px 0 0 0;
-        // height: 650px;
-        width: 650px;
+        // background-color: yellow; 
+        width: 100%;
     }
 }

@@ -1,3 +1,4 @@
+import MarkdownView from "../dialogPost/markdownView";
 import UserInfo from "../topNav_props/userInfo";
 import "./comment.scss";
 const { default: CommentLike } = require("./commentLike");
@@ -13,7 +14,7 @@ const Comment = (props) => {
           <UserInfo />
         </div> */}
       <div className="singleComment">
-        <div>{props.singleComment.comment}</div>
+        <div><MarkdownView markdown={props.singleComment.comment} /></div>
       </div>
         
         <div>

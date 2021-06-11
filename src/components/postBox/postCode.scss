@@ -1,0 +1,11 @@
+.postCode{
+    display:flex;
+    justify-content: space-between;
+        padding-top:.5em;
+        padding-left:2em;
+        padding-right:2em;
+        padding-top:.5em;
+        .code{
+            width:100%
+        }
+}

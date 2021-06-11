@@ -12,51 +12,43 @@ import PostCode from "../postBox/postCode";
 import PostTags from "../postBox/postTags";
 
 const PostBox = (props) => {
-  console.log("total_likes",props.singlePost)
+  console.log("total_likes", props.singlePost.image_url);
   return (
-    // <React.Fragment>
-    //   <CssBaseline />
     <div className="postBox">
-      <Container fixed>
-        <Typography
-          component="div"
-          style={{
-            display: "flex",
-            margin: "2em",
-            alignItems: "center",
-            justifyContent: "space-between",
-            flexDirection: "column",
-            backgroundColor: "rgb(190, 140, 73)",
-            minHeight: "25em",
-            minWidth: "35em",
-          }}
-          //           created_at: "2021-06-09T04:42:07.281Z"
-          // id: 36
-          // image_url: "null"
-          // parent_post_id: 1
-          // post_text: ""
-          // tags: null
-          // total_comments: 5
-          // total_likes: 5
-          // updated_at: "2021-06-09T04:42:07.281Z"
-          // user_id: 1
-        >
-          <PostNav userInfo ={props.singlePost.user_id} />
-          <PostImage imageArray={props.singlePost.image_url} />
-          <PostText message={props.singlePost.post_text} />
-          <PostCode code={props.singlePost.code} />
-          <PostToolbar  id={props.singlePost.id} likes={props.singlePost.total_likes} code={props.singlePost.redirect_code} />
-          <PostTags tags={props.singlePost.tags} />
-          <PostComment
-            id={props.singlePost.id}
-            commentMarkdown={props.commentMarkdown}
-            setCommentMarkdown={props.setCommentMarkdown}
-            commentData={props.commentData} setCommentData={props.setCommentData} 
-          />
-        </Typography>
-      </Container>
+      <div>
+        <PostNav userInfo={props.singlePost.user_id} />
       </div>
-    // </React.Fragment>
+      {JSON.parse(props.singlePost.image_url) ? 
+      <div>
+        <PostImage imageArray={props.singlePost.image_url} />
+      </div>
+      : null}
+      <div>
+        <PostText message={props.singlePost.post_text} />
+      </div>
+      <div>
+        <PostCode code={props.singlePost.code} redirect_code={props.singlePost.redirect_code}/>
+      </div>
+      <div>
+        <PostToolbar
+          id={props.singlePost.id}
+          likes={props.singlePost.total_likes}
+          
+        />
+      </div>
+      <div>
+        <PostTags tags={props.singlePost.tags} />
+      </div>
+      <div>
+        <PostComment
+          id={props.singlePost.id}
+          commentMarkdown={props.commentMarkdown}
+          setCommentMarkdown={props.setCommentMarkdown}
+          commentData={props.commentData}
+          setCommentData={props.setCommentData}
+        />
+      </div>
+    </div>
   );
 };
 

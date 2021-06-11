@@ -1,5 +1,5 @@
 import "./postComment.scss";
-import PostThreadDialog from "./postThreadDialog";
+import PostThreadDialog from "./postThreadCopy";
 
 const PostComment = (props) => {
   return (

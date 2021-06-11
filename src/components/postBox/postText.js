@@ -1,4 +1,5 @@
 import MarkdownView from "../dialogPost/markdownView";
+import"./postText.scss"
 
 
 const PostText = (props) => {

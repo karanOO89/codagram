@@ -39,7 +39,7 @@ export default function App(props) {
             setMarkdown={setMarkdown}
           />
         </div>
-        <div className="postContainer">
+        <div >
           <PostContainer
             postData={postData}
             commentData={commentData}

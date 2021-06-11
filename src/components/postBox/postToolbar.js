@@ -3,8 +3,6 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import FavoriteTwoToneIcon from "@material-ui/icons/FavoriteTwoTone";
-import ShareTwoToneIcon from "@material-ui/icons/ShareTwoTone";
-import BookTwoToneIcon from "@material-ui/icons/BookTwoTone";
 import RestaurantTwoToneIcon from "@material-ui/icons/RestaurantTwoTone";
 import Link from "@material-ui/core/Link";
 import axios from "axios";
@@ -59,64 +57,29 @@ const PostToolbar = (props) => {
       // console.log("fav fetched");
     });
   };
-  const visitLink = () => {
-    const code = encodeURIComponent(props.code.slice(5,-3))
-    console.log(code)
-    let url=`http://www.pythontutor.com/javascript.html#code=${code}&mode=edit&origin=opt-frontend.js&py=js&rawInputLstJSON=%5B%5D`
-      window.open(url, "_blank")
-  };
+ 
   return (
-    <React.Fragment>
-      <CssBaseline />
-      <Container fixed>
-        <Typography
-          component="div"
-          style={
-            {
-              // display: "flex",
-              // flexDirection:"column",
-              // alignItems: "center",
-              // justifyContent: "space-between",
-              // backgroundColor: "rgb(190, 255, 73)",
-              // height: "3em",
-            }
-          }
-        >
+   
+      
           <div className="tool">
             <div className="toolUpper">
-              <div>
-                <div className={status ? "favTrue" : "favFalse"}>
-                  <Link
-                    size="small"
-                    color="inherit"
-                    onClick={status ? favDelete : favInsert}
-                  >
-                    <FavoriteTwoToneIcon fontSize="small" />
-                  </Link>
-                </div>
-
-                <Link size="small" color="inherit" onClick={visitLink}>
-                  <ShareTwoToneIcon fontSize="small" />
-                </Link>
-                {/* <Link
-                  size="small"
+              <div className={status ? "favTrue" : "favFalse"}>
+                <Link
                   color="inherit"
-                  onClick={(e) => console.log("hey")}
+                  onClick={status ? favDelete : favInsert}
                 >
-                  <BookTwoToneIcon fontSize="small" />
-                </Link> */}
-              </div>
-              <div>
-                <Link size="small" color="inherit" onClick={forkPost}>
-                  <RestaurantTwoToneIcon fontSize="small" />
+                  <FavoriteTwoToneIcon  />
                 </Link>
               </div>
+            
             </div>
-            <div></div>
+            <div>
+              <Link color="inherit" onClick={forkPost}>
+                <RestaurantTwoToneIcon  />
+              </Link>
+            </div>
           </div>
-        </Typography>
-      </Container>
-    </React.Fragment>
+       
   );
 };
 

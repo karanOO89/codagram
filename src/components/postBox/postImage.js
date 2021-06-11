@@ -1,22 +1,28 @@
-import React from "react";
+import React ,{Fragment} from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "./postImage.scss"
 const PostImage = (props) => {
   const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    width: 100,
     // dots: true,
-    // fade: true,
     // infinite: true,
     // speed: 500,
     // slidesToShow: 1,
     // slidesToScroll: 1,
-    // arrows: true,
+    // width: 100,
+    dots: true,
+    // fade: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    // centerMode: true,
+    focusOnSelect: true
+    
+    
+    
     // className: "slides",
   };
   const newImageArray = [];
@@ -29,22 +35,23 @@ const PostImage = (props) => {
       });
     });
   }
-  
+  else{
     newImageArray.push({
       name: props.imageArray,
       url: `http://localhost:8080/uploads/${props.imageArray}`,
     });
   
-
+  }
 
   
   return (
-    <div style={{ width: "100%" }}>
+    // <div className="postImage">
+    <div className="postImage" >
       <Slider {...settings}>
         {newImageArray.map((photo) => {
           return (
             <div>
-              <img width="50%" src={photo.url} />
+              <img width="100%" height="500px"src={photo.url} />
             </div>
           );
         })}
