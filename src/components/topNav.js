@@ -7,7 +7,7 @@ const TopNav = (props) => {
   return (
     <div className="nav">
       <Logo />
-      <Search history={props.history}/>
+      {/* <Search history={props.history}/> */}
       <UserInfo/>
     </div>
   );
