@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from "react";
-import ChatApp from "./components/chatApp"; 
+
 import "./App.scss";
 //import { Editor } from "draft-js";
 //import TextEditor from "./components/TextEditor";
@@ -10,49 +10,42 @@ import SearchResult from "./components/SearchResult";
 import axios from "axios";
 import PostContainer from "./components/postsView/postContainer";
 
-
-
-
 export default function App(props) {
-  const [postData, setPostData] = useState([]);
-  const [commentData, setCommentData] = useState([]);
-  const [markdown, setMarkdown] = useState("sup");
-  const [commentMarkdown, setCommentMarkdown] = useState("");
+	const [postData, setPostData] = useState([]);
+	const [commentData, setCommentData] = useState([]);
+	const [markdown, setMarkdown] = useState("sup");
+	const [commentMarkdown, setCommentMarkdown] = useState("");
 
-  useEffect(() => {
-    axios.get("/post").then((res) => {
-      console.log(res.data);
-      setPostData([...res.data]);
-    });
-  }, []);
+	useEffect(() => {
+		axios.get("/post").then((res) => {
+			console.log(res.data);
+			setPostData([...res.data]);
+		});
+	}, []);
 
-
-  return (
-    <div className="App">
-      <TopNav />
-      <div className="appBody">
-        <div className="postDialog">
-          {/* {!data ? "Loading..." : data} */}
-          <PostDialog
-            setPostData={setPostData}
-            markdown={markdown}
-            setMarkdown={setMarkdown}
-          />
-        </div>
-        <div >
-          <PostContainer
-            postData={postData}
-            commentData={commentData}
-            setCommentData={setCommentData}
-            commentMarkdown={commentMarkdown}
-            setCommentMarkdown={setCommentMarkdown}
-          />
-        </div>
-        <div className="searchResult">{/* <SearchResult /> */}</div>
-
-          <ChatApp/>
-
-      </div>
-    </div>
-  );
+	return (
+		<div className='App'>
+			<TopNav />
+			<div className='appBody'>
+				<div className='postDialog'>
+					{/* {!data ? "Loading..." : data} */}
+					<PostDialog
+						setPostData={setPostData}
+						markdown={markdown}
+						setMarkdown={setMarkdown}
+					/>
+				</div>
+				<div>
+					<PostContainer
+						postData={postData}
+						commentData={commentData}
+						setCommentData={setCommentData}
+						commentMarkdown={commentMarkdown}
+						setCommentMarkdown={setCommentMarkdown}
+					/>
+				</div>
+				<div className='searchResult'>{/* <SearchResult /> */}</div>
+			</div>
+		</div>
+	);
 }
