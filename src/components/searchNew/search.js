@@ -1,83 +1,43 @@
-import React, { useState, useEffect } from 'react';
-import SearchBar from './SearchBar';
-import SearchText from './SearchText';
+import TextField from "@material-ui/core/TextField";
+import { useState, useEffect } from "react";
+import "./search.scss";
+import axios from "axios";
+import { Redirect } from "react-router-dom";
+import React from "react";
+import { useHistory } from "react-router-dom";
 
-const SearchPage = (props) => {
-  const [input, setInput] = useState('');
-  const [countryListDefault, setCountryListDefault] = useState();
-  const [countryList, setCountryList] = useState();
+const Search = (props) => {
+  const [searchStatus, setSearchStatus] = useState(false);
+  const [query, setQuery] = useState("");
 
-  const fetchData = async () => {
-    return await fetch('https://restcountries.eu/rest/v2/all')
-      .then(response => response.json())
-      .then(data => {
-         setCountryList(data) 
-         setCountryListDefault(data)
-       });}
+  const history = useHistory();
 
-  const updateInput = async (input) => {
-     const filtered = countryListDefault.filter(country => {
-      return country.name.toLowerCase().includes(input.toLowerCase())
-     })
-     setInput(input);
-     setCountryList(filtered);
-  }
-
-  useEffect( () => {fetchData()},[]);
-	
   return (
-    <>
-      <h1>Country List</h1>
-      <SearchBar 
-       input={input} 
-       onChange={updateInput}
-      />
-      <SearchText countryList={countryList}/>
-    </>
-   );
-}
+    <div className="search">
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          axios
+            .get("/search", {
+              params: { query: query },
+            })
+            .then((res) => {
+              console.log(res.data);
+              props.history.push("/search");
+            });
+        }}
+      >
+        <TextField
+          id="search"
+          label="Search"
+          onChange={(e) => {
+            setQuery(e.target.value);
+          }}
+        />
+        <input type="submit" hidden></input>
+      </form>
+    </div>
+  );
+};
 
-export default SearchPage
-
-
-
-// import React, { useState, useEffect } from 'react';
-// import SearchBar from './SearchBar';
-// import CountryList from './CountryList';
-
-// const SearchPage = (props) => {
-//   const [input, setInput] = useState('');
-//   const [countryListDefault, setCountryListDefault] = useState();
-//   const [countryList, setCountryList] = useState();
-
-//   const fetchData = async () => {
-//     return await fetch('https://restcountries.eu/rest/v2/all')
-//       .then(response => response.json())
-//       .then(data => {
-//          setCountryList(data) 
-//          setCountryListDefault(data)
-//        });}
-
-//   const updateInput = async (input) => {
-//      const filtered = countryListDefault.filter(country => {
-//       return country.name.toLowerCase().includes(input.toLowerCase())
-//      })
-//      setInput(input);
-//      setCountryList(filtered);
-//   }
-
-//   useEffect( () => {fetchData()},[]);
-	
-//   return (
-//     <>
-//       <h1>Country List</h1>
-//       <SearchBar 
-//        input={input} 
-//        onChange={updateInput}
-//       />
-//       <CountryList countryList={countryList}/>
-//     </>
-//    );
-// }
-
-// export default SearchPage
+export default Search;

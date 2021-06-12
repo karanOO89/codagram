@@ -12,21 +12,20 @@ const PostImage = (props) => {
     // slidesToScroll: 1,
     // width: 100,
     dots: true,
-    // fade: true,
+    fade: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: true,
-    // centerMode: true,
-    focusOnSelect: true
+    centerMode: true,
+    focusOnSelect: true,
     
     
     
-    // className: "slides",
+    className: "slides",
   };
   const newImageArray = [];
-  // if(props.imageArray && Array.isArray(JSON.parse(props.imageArray)){
   if (props.imageArray && Array.isArray(JSON.parse(props.imageArray))) {
     JSON.parse(props.imageArray).map((image) => {
       newImageArray.push({
@@ -45,7 +44,6 @@ const PostImage = (props) => {
 
   
   return (
-    // <div className="postImage">
     <div className="postImage" >
       <Slider {...settings}>
         {newImageArray.map((photo) => {
@@ -56,24 +54,7 @@ const PostImage = (props) => {
           );
         })}
       </Slider>
-      {/* {props.imageArray && Array.isArray(JSON.parse(props.imageArray)) ? (
-        JSON.parse(props.imageArray).map((item, index) => {
-          return (
-            <div key={index}>
-              <img
-                width="250px"
-                src={`http://localhost:8080/uploads/${item}`}
-              />
-            </div>
-          );
-        })
-      ) : props.imageArray ? (
-        <img
-          src={`http://localhost:8080/uploads/${JSON.parse(props.imageArray)}`}
-        />
-      ) : (
-        ""
-      )} */}
+   
     </div>
   );
 };
