@@ -66,11 +66,11 @@ const DialogContent = withStyles((theme) => ({
     // bottom: 80
   },
   editor: {
-    position: "absolute",
-    // left: 10,
-    height: "300px",
-    width: "100%",
-    bottom: 80,
+    // position: "absolute",
+    // // left: 10,
+    // height: "300px",
+    // width: "100%",
+    // bottom: 80,
   },
 }))(MuiDialogContent);
 
@@ -150,8 +150,6 @@ const PostThreadDialog = (props) => {
         "Content-Type": "multipart/form-data",
       },
     }).then((res) => {
-      // console.log("shjxxxxxxxxxxxx",res.data);
-
       props.setCommentData((prev) => [...prev, res.data]);
     });
   };
@@ -163,7 +161,7 @@ const PostThreadDialog = (props) => {
     }).then((res) => {
       props.setCommentData([...res.data]);
     });
-  }, []);
+  }, [open === true]);
 
   return (
     <div>
@@ -182,24 +180,26 @@ const PostThreadDialog = (props) => {
         <div className="threadDialog">
           <div className="comments">
             <DialogContent dividers>
-              {/* <div style={{ width: "100%", height: "220px"}}></div> */}
-
               <CommentContainer
                 commentData={props.commentData}
                 setCommentData={props.setCommentData}
+                markdown={props.commentMarkdown}
+                setMarkdown={props.setCommentMarkdown}
+                files={commentFiles}
+                setFiles={setCommentFiles}
               />
             </DialogContent>
           </div>
 
           <div className="editor">
-            <DialogContent dividers>
+            {/* <DialogContent dividers>
               <MultiImageUpload
                 files={commentFiles}
                 setFiles={setCommentFiles}
               />
-            </DialogContent>
+            </DialogContent> */}
 
-            <DialogContent dividers>
+            {/* <DialogContent dividers>
               <div class="postEditor">
                 <PostEditor
                   markdown={props.commentMarkdown}
@@ -207,7 +207,7 @@ const PostThreadDialog = (props) => {
                   
                 />
               </div>
-            </DialogContent>
+            </DialogContent> */}
 
             <DialogActions>
               <Button

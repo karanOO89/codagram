@@ -29,7 +29,7 @@ const StyledApp = styled.div`
   flex-direction: column;
   justify-content:space-between;
   align-items-center;
-  width: 75vh;
+  width: 60vh;
   height: 50vh;
   margin-top: 1em;
   
