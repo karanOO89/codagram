@@ -1,8 +1,8 @@
 import Home from "./pages/home";
 import Search from "./pages/searchPage";
+import ChatApp from "./components/chatApp";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
-import TopNav from "./components/topNav";
 
 export default function App(props) {
 	let history = useHistory("/");
@@ -42,7 +42,6 @@ export default function App(props) {
           </Route>
         </Switch> */}
 				</div>
-				<div className='searchResult'>{/* <SearchResult /> */}</div>
 			</Router>
 		</div>
 	);

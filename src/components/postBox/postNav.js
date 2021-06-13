@@ -1,15 +1,15 @@
 import React from "react";
 import UserInfo from "../topNav_props/userInfo";
 import Button from "@material-ui/core/Button";
-import "./postNav.scss"
+import "./postNav.scss";
 
 const PostNav = (props) => {
-  return (
-    <div className="postNav">
-      <div>
-        <UserInfo userInfo={props.userInfo} />
-      </div>
-      <div>
+	return (
+		<div className='postNav'>
+			<div>
+				<UserInfo userInfo={props.userInfo} />
+			</div>
+			{/* <div>
         <Button
           size="small"
           variant="contained"
@@ -18,9 +18,9 @@ const PostNav = (props) => {
         >
           Follow
         </Button>
-      </div>
-    </div>
-  );
+      </div> */}
+		</div>
+	);
 };
 
 export default PostNav;

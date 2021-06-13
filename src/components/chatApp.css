@@ -6,6 +6,8 @@ body {
   text-align: center;
   max-width: 728px;
   margin: 0 auto;
+  height: 500px;
+  width: 500px;
 }
 
 .App header {
@@ -28,14 +30,15 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 100vh;
+  min-height: 40vh;
   background-color: rgb(40, 37, 53);
+  width: 500px;
 }
 
 main {
   padding: 10px;
-  height: 80vh;
-  margin: 10vh 0 10vh;
+  height: 70vh;
+  margin: 1vh 0 1vh;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
@@ -55,13 +58,7 @@ main::-webkit-scrollbar-thumb {
 
 form {
   height: 10vh;
-  position: fixed;
-  bottom: 0;
-  background-color: rgb(24, 23, 23);
-  width: 100%;
-  max-width: 728px;
-  display: flex;
-  font-size: 1.5rem;
+
 }
 
 form button {
@@ -150,4 +147,8 @@ p {
   height: 40px;
   border-radius: 50%;
   margin: 2px 5px;
+}
+
+.makeStyle-paper-7 {
+  padding: 0;
 }
