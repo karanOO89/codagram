@@ -1,18 +1,30 @@
 .comment {
-  display: flex;
-  // flex-direction: column;
-  justify-content: space-between;
-  padding-bottom: 3em;  
-  // border- : 5px solid black;
-  .userName{
+  .displayComment {
     display: flex;
-    flex-direction: row;
+    // width: 52em;
+    overflow-wrap: break-word;
+    padding:1em;
     justify-content: space-between;
-  }
-  .singleComment{
-    
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+    // border-bottom: grey solid 1px;
+    // overflow-y: scroll;
+    left: 0;
+    bottom: 500px;
+    // flex-direction: column;
+    // height: 45em;
+    width: 100%;
+
+    pre {
+      width: 100%;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      white-space: -moz-pre-wrap;
+      white-space: -pre-wrap;
+      white-space: -o-pre-wrap;
+      word-wrap: break-word;
+    }
+    .commentBox{
+      overflow-wrap: break-word;
+      width: 80%;
+    }
   }
 }
