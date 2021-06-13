@@ -14,8 +14,8 @@ const CommentLike = (props) => {
       method: "PUT",
       url: Url,
       data: {vote:vote+1},
-    }).then((res) => {
-      setVote(res.data)
+    }).then(async(res) => {
+      await setVote(res.data)
     });
   };
   const voteDelete = async() => {
@@ -25,9 +25,9 @@ const CommentLike = (props) => {
       method: "PUT",
       url: Url,
       data: {vote:vote-1},
-    }).then((res) => {
+    }).then(async(res) => {
         if(res.data>=0)
-        setVote(res.data)
+        await setVote(res.data)
     });
   };
   return (
