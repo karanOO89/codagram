@@ -1,7 +1,8 @@
 import "./postComment.scss";
-import PostThreadDialog from "./postThreadCopy";
+import PostThreadDialog from "./postThreadDialog";
 
 const PostComment = (props) => {
+  
   return (
     <div className="postComment">
       <div className="viewThread">

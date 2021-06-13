@@ -1,58 +1,49 @@
-import { React, useState, useEffect } from "react";
-import ChatApp from "./components/chatApp"; 
-import "./App.scss";
-//import { Editor } from "draft-js";
-//import TextEditor from "./components/TextEditor";
-// import { BrowserRouter as Router, Link, Route } from "react-router-dom";
-import PostDialog from "./components/postDialog";
+import Home from "./pages/home";
+import Search from "./pages/searchPage";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import TopNav from "./components/topNav";
-import SearchResult from "./components/SearchResult";
-import axios from "axios";
-import PostContainer from "./components/postsView/postContainer";
-
-
-
 
 export default function App(props) {
-  const [postData, setPostData] = useState([]);
-  const [commentData, setCommentData] = useState([]);
-  const [markdown, setMarkdown] = useState("sup");
-  const [commentMarkdown, setCommentMarkdown] = useState("");
+	let history = useHistory("/");
 
-  useEffect(() => {
-    axios.get("/post").then((res) => {
-      console.log(res.data);
-      setPostData([...res.data]);
-    });
-  }, []);
+	return (
+		<div>
+			<nav></nav>
 
-
-  return (
-    <div className="App">
-      <TopNav />
-      <div className="appBody">
-        <div className="postDialog">
-          {/* {!data ? "Loading..." : data} */}
-          <PostDialog
-            setPostData={setPostData}
-            markdown={markdown}
-            setMarkdown={setMarkdown}
-          />
-        </div>
-        <div >
-          <PostContainer
-            postData={postData}
-            commentData={commentData}
-            setCommentData={setCommentData}
-            commentMarkdown={commentMarkdown}
-            setCommentMarkdown={setCommentMarkdown}
-          />
-        </div>
-        <div className="searchResult">{/* <SearchResult /> */}</div>
-
-          <ChatApp/>
-
-      </div>
-    </div>
-  );
+			<Router>
+				<div>
+					{/* <nav> */}
+					{/* <ul> */}
+					{/* <li> */}
+					{/* <Link to="/search">Search</Link> */}
+					{/* </li> */}
+					{/* <li>
+              <Link to="/about">About</Link>
+            </li>
+            <li>
+              <Link to="/users">Users</Link>
+            </li> */}
+					{/* </ul> */}
+					{/* </nav> */}
+					<Switch>
+						<Route path='/search' component={Search} />
+						{/* <Route  component={TopNav} history={history} /> */}
+						<Route path='/' component={Home} history={history} />
+						{/* <Route path="/shop" component={Shop} /> */}
+					</Switch>
+					{/* <Switch>
+       
+          <Route path="/search">
+            <Search/>
+          </Route>
+          <Route path="/">
+            <Home  history={history}/>
+          </Route>
+        </Switch> */}
+				</div>
+				<div className='searchResult'>{/* <SearchResult /> */}</div>
+			</Router>
+		</div>
+	);
 }

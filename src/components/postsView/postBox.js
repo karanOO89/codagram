@@ -12,7 +12,7 @@ import PostCode from "../postBox/postCode";
 import PostTags from "../postBox/postTags";
 
 const PostBox = (props) => {
-  console.log("total_likes", props.singlePost.image_url);
+  // console.log("total_likes", props.singlePost.image_url);
   return (
     <div className="postBox">
       <div>

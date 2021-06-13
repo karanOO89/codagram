@@ -1,13 +1,13 @@
 import Logo from "./topNav_props/logo";
 import  "./topNav.scss"
-import Search from "./topNav_props/search";
+import Search from "./searchNew/search";
 import UserInfo from "./topNav_props/userInfo";
 
-const TopNav = () => {
+const TopNav = (props) => {
   return (
     <div className="nav">
       <Logo />
-      <Search/>
+      {/* <Search history={props.history}/> */}
       <UserInfo/>
     </div>
   );
