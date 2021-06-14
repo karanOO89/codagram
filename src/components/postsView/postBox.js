@@ -36,10 +36,13 @@ const PostBox = (props) => {
         <PostToolbar
           id={props.singlePost.id}
           likes={props.singlePost.total_likes}
+          redirect_code={props.singlePost.redirect_code}
+          code={props.singlePost.code}
         />
       </div>
       <div>
         <PostTags tags={props.singlePost.tags} />
+
       </div>
       <div>
         <PostComment
