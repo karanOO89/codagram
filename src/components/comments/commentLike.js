@@ -49,7 +49,8 @@ const CommentLike = (props) => {
   return (
     <div
       style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
-    >
+      >
+      <div>{vote}</div>
       {voteState === true ? (
         <div>
           <Link onClick={voteDelete}>
@@ -63,7 +64,6 @@ const CommentLike = (props) => {
           </Link>
         </div>
       )}
-      <div>{vote}</div>
     </div>
   );
 };
