@@ -1,14 +1,13 @@
-import "./logo.scss"
+import "./logo.scss";
 const Logo = () => {
-    return(
-        <div class="logo">
-          <article>
-            {/* <div>logo</div> */}
-            <div class= "logo_text">Codagram</div>
-          </article>
+	return (
+		<div class='logo'>
+			<article>
+				{/* <div>logo</div> */}
+				<div class='logo_text'>CODAGRAM</div>
+			</article>
+		</div>
+	);
+};
 
-        </div>
-    )
-}
-
-export default Logo
+export default Logo;
