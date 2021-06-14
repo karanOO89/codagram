@@ -5,7 +5,7 @@ import "./commentContainer";
 import styled from "styled-components";
 import MarkdownView from "../dialogPost/markdownView";
 const CommentContainer = (props) => {
-  console.log(props);
+  // console.log(props);
   // console.log("commmmmeeennnttss", props.commentData);
   const comments = props.commentData
     .slice(0)
@@ -20,7 +20,7 @@ const CommentContainer = (props) => {
               backgroundColor: "beige",
             }}
           >
-            <Comment key={i} singleComment={comment} />
+            <Comment key={i} singleComment={comment} trendingComment={props.setTrendingComment} />
           </div>
         );
       } else {
@@ -30,7 +30,7 @@ const CommentContainer = (props) => {
               backgroundColor: "white",
             }}
           >
-            <Comment key={i} singleComment={comment} />
+            <Comment key={i} singleComment={comment} trendingComment={props.setTrendingComment} />
           </div>
         );
       }
@@ -60,7 +60,7 @@ const CommentContainer = (props) => {
       </div>
       <div
         style={{
-          width: "55em",
+          width: "0em",
           height: "10em",
           // marginBottom: "0px",
           // position: "fixed",

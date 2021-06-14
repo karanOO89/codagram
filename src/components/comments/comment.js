@@ -5,7 +5,7 @@ const { default: CommentLike } = require("./commentLike");
 
 const Comment = (props) => {
   //   console.log("propsssssss", props);
-    // console.log("coment single", props.singleComment);
+  // console.log("coment single", props.singleComment);
   return (
     <div className="comment">
       <div>
@@ -13,15 +13,18 @@ const Comment = (props) => {
           <UserInfo />
         </div> */}
         <div className="displayComment">
-       
           <div className="commentBox">
             <MarkdownView markdown={props.singleComment.comment} />
           </div>
           <div>
-            <CommentLike id={props.singleComment.id} vote={props.singleComment.votes} />
+            <CommentLike
+            trendingComment={props.setTrendingComment}
+              id={props.singleComment.id}
+              post_id={props.singleComment.post_id}
+              vote_state={props.singleComment.vote_state}
+              vote={props.singleComment.votes}
+            />
           </div>
-
-         
         </div>
       </div>
     </div>

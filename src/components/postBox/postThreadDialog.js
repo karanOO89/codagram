@@ -181,6 +181,7 @@ const PostThreadDialog = (props) => {
           <div className="comments">
             <DialogContent dividers>
               <CommentContainer
+              trendingComment={props.setTrendingComment}
                 commentData={props.commentData}
                 setCommentData={props.setCommentData}
                 markdown={props.commentMarkdown}

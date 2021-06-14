@@ -18,22 +18,24 @@ const PostBox = (props) => {
       <div>
         <PostNav userInfo={props.singlePost.user_id} />
       </div>
-      {JSON.parse(props.singlePost.image_url) ? 
-      <div>
-        <PostImage imageArray={props.singlePost.image_url} />
-      </div>
-      : null}
+      {JSON.parse(props.singlePost.image_url) ? (
+        <div>
+          <PostImage imageArray={props.singlePost.image_url} />
+        </div>
+      ) : null}
       <div>
         <PostText message={props.singlePost.post_text} />
       </div>
       <div>
-        <PostCode code={props.singlePost.code} redirect_code={props.singlePost.redirect_code}/>
+        <PostCode
+          code={props.singlePost.code}
+          redirect_code={props.singlePost.redirect_code}
+        />
       </div>
       <div>
         <PostToolbar
           id={props.singlePost.id}
           likes={props.singlePost.total_likes}
-          
         />
       </div>
       <div>
@@ -46,6 +48,8 @@ const PostBox = (props) => {
           setCommentMarkdown={props.setCommentMarkdown}
           commentData={props.commentData}
           setCommentData={props.setCommentData}
+          trendingComment={props.trendingComment}
+          trendingComment={props.setTrendingComment}
         />
       </div>
     </div>
