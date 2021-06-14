@@ -39,7 +39,7 @@ export default function TransitionsModal() {
 				onClick={handleOpen}
 				variant='contained'
 				size='medium'
-				color='brown'
+				color='#00a152'
 				className={classes.margin}
 			>
 				Chat
