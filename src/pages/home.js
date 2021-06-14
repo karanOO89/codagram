@@ -21,17 +21,24 @@ export default function Home(props) {
 		<div className='App'>
 			<TopNav history={props.history} />
 			<div className='appBody'>
-				<div className='postDialog'>
-					<PostDialog
-						setPostData={setPostData}
-						markdown={markdown}
-						setMarkdown={setMarkdown}
-					/>
-				</div>
-				<div className='filterToolBar'>
+				<div
+					style={{
+						display: "flex",
+						alignItems: "center",
+						justifyContent: "space-between",
+						width: "57em",
+					}}
+				>
+					<div className='postDialog'>
+						<PostDialog
+							setPostData={setPostData}
+							markdown={markdown}
+							setMarkdown={setMarkdown}
+						/>
+					</div>
+
 					<FilterToolBar setPostData={setPostData} />
 				</div>
-
 				<PostContainer
 					postData={postData}
 					commentData={commentData}
@@ -40,7 +47,7 @@ export default function Home(props) {
 					setCommentMarkdown={setCommentMarkdown}
 				/>
 			</div>
-			//{" "}
+			{/* //{" "} */}
 		</div>
 	);
 }
