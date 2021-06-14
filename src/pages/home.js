@@ -22,12 +22,11 @@ export default function Home(props) {
       })
       .then(() => {
         // console.log("postData",postData[0]["id"])
-          let id = postData[0];
-          console.log(id);
-           axios.get(`comment/${Number(id)}/favComment`)
-           .then((res)=>{
-             console.log("data",res.data)
-           })
+        let id = postData[0];
+        console.log(id);
+        axios.get(`comment/${Number(id)}/favComment`).then((res) => {
+          console.log("data", res.data);
+        });
       });
   }, [trendingComment]);
 
@@ -36,31 +35,32 @@ export default function Home(props) {
       <TopNav history={props.history} />
 
       <div className="appBody">
-        <div className="postDialog">
-          {/* {!data ? "Loading..." : data} */}
-          <PostDialog
-            setPostData={setPostData}
-            markdown={markdown}
-            setMarkdown={setMarkdown}
-          />
-        </div>
-        <div className="filterToolBar">
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            width: "57em",
+          }}
+        >
+          <div className="postDialog">
+            <PostDialog
+              setPostData={setPostData}
+              markdown={markdown}
+              setMarkdown={setMarkdown}
+            />
+          </div>
           <FilterToolBar setPostData={setPostData} />
         </div>
-        <div>
-          <PostContainer
-            postData={postData}
-            commentData={commentData}
-            setCommentData={setCommentData}
-            commentMarkdown={commentMarkdown}
-            setCommentMarkdown={setCommentMarkdown}
-            trendingComment={trendingComment}
-            setTrendingComment={setTrendingComment}
-          />
-        </div>
-        {/* <div>
-          <Search />
-        </div> */}
+        <PostContainer
+          postData={postData}
+          commentData={commentData}
+          setCommentData={setCommentData}
+          commentMarkdown={commentMarkdown}
+          setCommentMarkdown={setCommentMarkdown}
+          trendingComment={trendingComment}
+          setTrendingComment={setTrendingComment}
+        />
       </div>
     </div>
   );
@@ -102,4 +102,3 @@ export default function Home(props) {
 // 			</div>
 // 			//{" "}
 // 		</div>
-
