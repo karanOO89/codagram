@@ -26,7 +26,7 @@ const CommentLike = (props) => {
       })
       .then((res) => {
         axios.put(`/post/${props.post_id}/favComment`).then((res) => {
-          console.log(res.data);
+          // console.log(res.data);
           props.setTrendingComment(res.data);
         });
       });
@@ -52,7 +52,7 @@ const CommentLike = (props) => {
       })
       .then((res) => {
         axios.put(`/post/${props.post_id}/favComment`).then((res) => {
-          console.log(res.data);
+          console.log("resposne",res.data);
           props.setTrendingComment(res.data);
         });
       });
