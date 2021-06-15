@@ -66,6 +66,17 @@ const PostToolbar = (props) => {
     window.open(url, "_blank");
   };
 
+  const style = {
+    background: '#00a152',
+    borderRadius: 3,
+    border: 0,
+    color: 'white',
+    height: 32,
+    padding: '10px 10px',
+    margin: 0,
+    // boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+  };
+  
   return (
     <div className="tool">
       <div className="toolUpper">
@@ -83,6 +94,7 @@ const PostToolbar = (props) => {
               color="primary"
               size="small"
               onClick={visitLink}
+              style={style}
             >
               pythonTutor
             </Button>

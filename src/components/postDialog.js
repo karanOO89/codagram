@@ -27,6 +27,7 @@ const styles = (theme) => ({
   root: {
     margin: 0,
     padding: theme.spacing(2),
+    color: '#00a152',
   },
   closeButton: {
     position: "absolute",
@@ -35,6 +36,17 @@ const styles = (theme) => ({
     color: theme.palette.grey[500],
   },
 });
+
+const style = {
+  background: '#00a152',
+  borderRadius: 3,
+  border: 0,
+  color: '#e5e5ea',
+  height: 32,
+  padding: '10px 10px',
+	margin: 0,
+  // boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+};
 
 const DialogTitle = withStyles(styles)((props) => {
   const { children, classes, onClose, ...other } = props;
@@ -151,7 +163,7 @@ export default function PostDialog(props) {
   };
   return (
     <div>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+      <Button variant="outlined" style={style} onClick={handleClickOpen}>
         Add a Post
       </Button>
       <Dialog

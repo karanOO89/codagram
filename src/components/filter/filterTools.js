@@ -36,9 +36,9 @@ export default function FilterTools(props) {
 	})((props) => <Radio color='default' {...props} />);
 	return (
 		<div className='filterRadio'>
-			{/* <div>
+			<div>
 				<CachedIcon onClick={resetValue} />
-			</div> */}
+			</div>
 			<div>
 				Tags
 				<GreenRadio

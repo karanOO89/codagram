@@ -20,6 +20,17 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
+const style = {
+  background: '#00a152',
+  borderRadius: 3,
+  border: 0,
+  color: 'white',
+  height: 32,
+  padding: '10px 10px',
+	margin: 0,
+  // boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+};
+
 export default function TransitionsModal() {
 	const classes = useStyles();
 	const [open, setOpen] = React.useState(false);
@@ -38,9 +49,10 @@ export default function TransitionsModal() {
 				type='button'
 				onClick={handleOpen}
 				variant='contained'
-				size='medium'
+				size='small'
 				color='#00a152'
 				className={classes.margin}
+				style={style}
 			>
 				Chat
 			</Button>

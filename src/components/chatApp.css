@@ -12,10 +12,10 @@ body {
 }
 
 .App header {
-  background-color: #181717;
+  background-color: #2c387e;
   height: 10vh;
   min-height: 50px;
-  color: white;
+  color: #00a152;
   width: 100%;
   max-width: 728px;
   top: 0;
@@ -54,7 +54,7 @@ main::-webkit-scrollbar-track {
 }
 
 main::-webkit-scrollbar-thumb {
-  background: #6649b8;
+  background: #bdbdbd;
 }
 
 form > .chatAppText {
@@ -72,8 +72,7 @@ input {
   line-height: 3.7rem;
   width: 80%;
   font-size: 1.5rem;
-  background: #424242
-  ;
+  background: #424242;
   color: #bdbdbd;
   outline: none;
   border: none;
@@ -137,7 +136,7 @@ p {
 
 .sent p {
   color: white;
-  background: #2C387E;
+  background: #2196f3;
   align-self: flex-end;
 }
 .received p {
