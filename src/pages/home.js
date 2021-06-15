@@ -10,25 +10,17 @@ export default function Home(props) {
   const [commentData, setCommentData] = useState([]);
   const [markdown, setMarkdown] = useState("sup");
   const [commentMarkdown, setCommentMarkdown] = useState("");
-  const [trendingComment, setTrendingComment] = useState(false);
+  //[{id:"",favComment:""}]
 
   useEffect(() => {
-    axios
-      .get("/post")
-      .then((res) => {
-        // console.log(res.data);
-        setPostData([...res.data]);
-        // setTrendingComment([...res.data]);
-      })
-      .then(() => {
-        // console.log("postData",postData[0]["id"])
-        let id = postData[0];
-        console.log(id);
-        axios.get(`comment/${Number(id)}/favComment`).then((res) => {
-          console.log("data", res.data);
-        });
-      });
-  }, [trendingComment]);
+    axios.get("/post").then((res) => {
+      // console.log("1111111111111111",res.data)
+      setPostData([...res.data]);
+      // setTrendingComment()
+
+      
+    });
+  }, []);
 
   return (
     <div className="App">
@@ -58,8 +50,7 @@ export default function Home(props) {
           setCommentData={setCommentData}
           commentMarkdown={commentMarkdown}
           setCommentMarkdown={setCommentMarkdown}
-          trendingComment={trendingComment}
-          setTrendingComment={setTrendingComment}
+          
         />
       </div>
     </div>

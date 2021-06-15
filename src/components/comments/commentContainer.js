@@ -9,10 +9,8 @@ const CommentContainer = (props) => {
   // console.log("commmmmeeennnttss", props.commentData);
   const comments = props.commentData
     .slice(0)
-    .reverse()
+    // .reverse()
     .map((comment, i) => {
-      
-
       if (i % 2 === 0) {
         return (
           <div
@@ -20,7 +18,11 @@ const CommentContainer = (props) => {
               backgroundColor: "beige",
             }}
           >
-            <Comment key={i} singleComment={comment} trendingComment={props.setTrendingComment} />
+            <Comment
+              key={i}
+              singleComment={comment}
+              setTrendingComment={props.setTrendingComment}
+            />
           </div>
         );
       } else {
@@ -30,7 +32,11 @@ const CommentContainer = (props) => {
               backgroundColor: "white",
             }}
           >
-            <Comment key={i} singleComment={comment} trendingComment={props.setTrendingComment} />
+            <Comment
+              key={i}
+              singleComment={comment}
+              setTrendingComment={props.setTrendingComment}
+            />
           </div>
         );
       }
@@ -39,9 +45,9 @@ const CommentContainer = (props) => {
     <div
       className="commentContainer"
       style={{
-        
         display: "flex",
         width: "100%",
+        flexDirection:"column-reverse",
         // height: "56em",
         flexDirection: "column",
         justifyContent: " space-between",
@@ -50,6 +56,8 @@ const CommentContainer = (props) => {
       <div
         className="displayComment"
         style={{
+          // display:"flex",
+         
           width: "100%",
           wordWrap: "break-word",
           height: "200px",
