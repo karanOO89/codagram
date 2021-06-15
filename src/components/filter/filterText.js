@@ -7,7 +7,6 @@ import React from "react";
 // import { useHistory } from "react-router-dom";
 
 const FilterText = (props) => {
-
   //   const history = useHistory();
   const handleSearch = (e) => {
     e.preventDefault();
@@ -17,24 +16,27 @@ const FilterText = (props) => {
       })
       .then((res) => {
         console.log(res.data);
-        props.setPostData(res.data)
+        props.setPostData(res.data);
         //   props.history.push("/search");
       });
   };
 
   return (
     <div className="search">
-      <form onSubmit={handleSearch}>
-        <TextField
-          id="search"
-          label="Search"
-          value={props.query}
-          onChange={(e) => {
-            props.setQuery(e.target.value);
-          }}
-        />
-        <input type="submit" hidden></input>
-      </form>
+      <div>
+        <form onSubmit={handleSearch}>
+          <TextField
+            id="search"
+            label="Search"
+            value={props.query}
+            onChange={(e) => {
+              props.setQuery(e.target.value);
+            }}
+          />
+          <input type="submit" hidden></input>
+        </form>
+      </div>
+     
     </div>
   );
 };

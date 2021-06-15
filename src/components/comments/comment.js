@@ -5,7 +5,7 @@ const { default: CommentLike } = require("./commentLike");
 
 const Comment = (props) => {
   //   console.log("propsssssss", props);
-  console.log("coment single", props.singleComment);
+  // console.log("coment single", props.singleComment);
   return (
     <div className="comment">
       <div>
@@ -18,7 +18,7 @@ const Comment = (props) => {
           </div>
           <div>
             <CommentLike
-            trendingComment={props.setTrendingComment}
+              setTrendingComment={props.setTrendingComment}
               id={props.singleComment.id}
               user_id={props.singleComment.user_id}
               post_id={props.singleComment.post_id}

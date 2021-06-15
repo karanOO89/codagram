@@ -11,8 +11,6 @@ const CommentContainer = (props) => {
     .slice(0)
     .reverse()
     .map((comment, i) => {
-      
-
       if (i % 2 === 0) {
         return (
           <div
@@ -20,7 +18,11 @@ const CommentContainer = (props) => {
               backgroundColor: "beige",
             }}
           >
-            <Comment key={i} singleComment={comment} trendingComment={props.setTrendingComment} />
+            <Comment
+              key={i}
+              singleComment={comment}
+              setTrendingComment={props.setTrendingComment}
+            />
           </div>
         );
       } else {
@@ -30,7 +32,11 @@ const CommentContainer = (props) => {
               backgroundColor: "white",
             }}
           >
-            <Comment key={i} singleComment={comment} trendingComment={props.setTrendingComment} />
+            <Comment
+              key={i}
+              singleComment={comment}
+              setTrendingComment={props.setTrendingComment}
+            />
           </div>
         );
       }
@@ -39,7 +45,6 @@ const CommentContainer = (props) => {
     <div
       className="commentContainer"
       style={{
-        
         display: "flex",
         width: "100%",
         // height: "56em",

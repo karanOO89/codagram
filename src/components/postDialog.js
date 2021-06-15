@@ -69,6 +69,8 @@ const DialogActions = withStyles((theme) => ({
 
 export default function PostDialog(props) {
   const [data, setData] = useState(null);
+  const [textValue, setTextValue] = useState("");
+
   const [files, setFiles] = useState([]);
 
   const classes = useStyles();
@@ -135,6 +137,8 @@ export default function PostDialog(props) {
       });
     }
 
+
+
     const Url = "/post";
     axios({
       method: "POST",
@@ -144,11 +148,19 @@ export default function PostDialog(props) {
         "Content-Type": "multipart/form-data",
       },
     }).then((res) => {
-      props.setPostData((prev) => [...prev, res.data]);
-
-      handleClose();
-    });
+      console.log("resssssssssssDDDDDDDDDDDDdaaaaaaaaaaa",res.data)
+      props.setPostData((prev) => [...prev, res.data])
+     
+      // window.location.reload();
+      handleClose();  
+    })
+   
   };
+
+
+
+
+
   return (
     <div>
       <Button variant="outlined" color="primary" onClick={handleClickOpen}>
@@ -171,6 +183,7 @@ export default function PostDialog(props) {
           <PostEditor
             markdown={props.markdown}
             setMarkdown={props.setMarkdown}
+            textValue={textValue}
           />
         </DialogContent>
 

@@ -97,19 +97,7 @@ const PostThreadDialog = (props) => {
     setOpen(false);
   };
   const commentInsert = () => {
-    // const tags = [];
-    const message = [];
-    // props.markdown
-    //   .replace(/\n/g, " ")
-    //   .split(" ")
-    //   .map((word) => {
-    //     if (word[0] === "#" && word.length > 1) {
-    //       tags.push(word.substr(1));
-    //     } else {
-    //       message.push(word);
-    //     }
-    //   });
-    // commentMarkdown = {props.commentMarkdown} setCommentMarkdown ={props.setCommentMarkdown}
+  
     const matches = props.commentMarkdown.split("```");
     const code = "```" + matches[1] + "```";
     let new_code = "";
@@ -131,9 +119,7 @@ const PostThreadDialog = (props) => {
         new_code += word;
       }
     });
-    // tags.forEach((tag) => {
-    //   formData.append("tags", tag);
-    // });
+  
 
     const formData = new FormData();
     formData.append("message", props.commentMarkdown);
@@ -181,34 +167,21 @@ const PostThreadDialog = (props) => {
           <div className="comments">
             <DialogContent dividers>
               <CommentContainer
-              trendingComment={props.setTrendingComment}
+                trendingComment={props.trendingComment}
+                setTrendingComment={props.setTrendingComment}
                 commentData={props.commentData}
                 setCommentData={props.setCommentData}
                 markdown={props.commentMarkdown}
                 setMarkdown={props.setCommentMarkdown}
                 files={commentFiles}
                 setFiles={setCommentFiles}
+                setTrendingComment={props.setTrendingComment}
               />
             </DialogContent>
           </div>
 
           <div className="editor">
-            {/* <DialogContent dividers>
-              <MultiImageUpload
-                files={commentFiles}
-                setFiles={setCommentFiles}
-              />
-            </DialogContent> */}
-
-            {/* <DialogContent dividers>
-              <div class="postEditor">
-                <PostEditor
-                  markdown={props.commentMarkdown}
-                  setMarkdown={props.setCommentMarkdown}
-                  
-                />
-              </div>
-            </DialogContent> */}
+            
 
             <DialogActions>
               <Button

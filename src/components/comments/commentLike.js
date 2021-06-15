@@ -7,49 +7,58 @@ const CommentLike = (props) => {
   const [vote, setVote] = useState(props.vote);
   const [voteState, setVoteState] = useState(props.vote_state);
   // console.log("coment single", props.vote_state);
-  const voteAdd = async () => {
+  console.log("props trending comment ", props.comment);
+
+  const voteAdd = () => {
     let id = props.id;
     const Url = `/comment/${id}`;
     console.log(vote);
-    await axios({
+    axios({
       method: "PUT",
       url: Url,
       data: { vote: vote + 1, vote_state: true },
     })
-      .then(async (res) => {
+      .then((res) => {
         // console.log("voteee", res.data.vote);
-        await setVote(res.data.votes);
-        await setVoteState(res.data.vote_state);
-      })
-      .then(() => {
-        axios.get(`/comment/${props.post_id}/favComment`).then((res) => {
-          console.log("comment data", res.data);
-          props.setTrendingComment(res.data)
+        setVote(res.data.votes);
+        setVoteState(res.data.vote_state);
+      }).then((res) => {
+        axios.put(`/post/${props.post_id}/favComment`).then((res) => {
+          console.log(res.data);
+          props.setTrendingComment(res.data);
         });
       });
   };
+
   const voteDelete = async () => {
     let id = props.id;
+    let user_id = props.user_id;
     const Url = `/comment/${id}`;
+
     await axios({
       method: "PUT",
       url: Url,
       data: { vote: vote - 1, vote_state: false },
-    }).then(async (res) => {
-      console.log("voteee", props.post_id);
-      if (res.data.votes >= 0) {
-        await setVote(res.data.votes);
-        await setVoteState(res.data.vote_state);
-        axios.get(`/comment/${props.post_id}/favComment`).then((res) => {
-          console.log("comment data", res.data);
+    })
+      .then((res) => {
+        console.log("voteee", props.post_id);
+        if (res.data.votes >= 0) {
+          setVote(res.data.votes);
+          setVoteState(res.data.vote_state);
+        }
+      }).then((res) => {
+        axios.put(`/post/${props.post_id}/favComment`).then((res) => {
+          console.log(res.data);
+          props.setTrendingComment(res.data);
+
         });
-      }
-    });
+      });
   };
   return (
     <div
       style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
-      >
+    >
+      <label style={{ fontStyle: "italic" }}>Votes</label>
       <div>{vote}</div>
       {voteState === true ? (
         <div>
