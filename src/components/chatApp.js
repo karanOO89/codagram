@@ -1,5 +1,10 @@
 import React, { useRef, useState } from "react";
 import "./chatApp.css";
+import { makeStyles } from "@material-ui/core/styles";
+import Modal from "@material-ui/core/Modal";
+import Backdrop from "@material-ui/core/Backdrop";
+import Fade from "@material-ui/core/Fade";
+import Button from "@material-ui/core/Button";
 
 import firebase from "firebase/app";
 import "firebase/firestore";
@@ -24,6 +29,17 @@ if (!firebase.apps.length) {
 	firebase.app();
 }
 
+const style = {
+  background: '#080808',
+  borderRadius: 0,
+  border: 0,
+  color: 'white',
+  height: 32,
+  padding: '10px 10px',
+	margin: 0,
+  // boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+};
+
 const auth = firebase.auth();
 const firestore = firebase.firestore();
 const analytics = firebase.analytics();
@@ -33,7 +49,7 @@ function ChatApp() {
 
 	return (
 		<div className='App'>
-			<header>
+			<header style={style}>
 				<h3>CODAGRAM</h3>
 				<SignOut />
 			</header>
@@ -54,9 +70,6 @@ function SignIn() {
 			<button className='sign-in' onClick={signInWithGoogle}>
 				Sign in with Google
 			</button>
-			<p>
-				Do not violate the community guidelines or you will be banned for life!
-			</p>
 		</>
 	);
 }
@@ -74,7 +87,7 @@ function SignOut() {
 function ChatRoom() {
 	const dummy = useRef();
 	const messagesRef = firestore.collection("messages");
-	const query = messagesRef.orderBy("createdAt").limit(25);
+	const query = messagesRef.orderBy("createdAt", "asc").limit(25);
 
 	const [messages] = useCollectionData(query, { idField: "id" });
 
