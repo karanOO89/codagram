@@ -15,7 +15,7 @@ const CommentContainer = (props) => {
         return (
           <div
             style={{
-              backgroundColor: "beige",
+              backgroundColor: "#616161",
             }}
           >
             <Comment
@@ -29,7 +29,7 @@ const CommentContainer = (props) => {
         return (
           <div
             style={{
-              backgroundColor: "white",
+              backgroundColor: "#757575",
             }}
           >
             <Comment
@@ -82,6 +82,7 @@ const CommentContainer = (props) => {
             <div
               className="preview"
               style={{
+                backgroundColor: '#212121',
                 overflowWrap: "break-word",
               }}
             >
@@ -110,7 +111,7 @@ export default CommentContainer;
 
 const StyledApp = styled.div`
   display: flex;
-  
+  background-color: #424242;
   flex-direction: column;
   justify-content:space-between;
   align-items-center;
@@ -137,6 +138,8 @@ const StyledEditor = styled.div`
 
   width: 100%;
   textarea {
+    background-color: #212121;
+    color: white;
     width: 100%;
     padding: 5px;
     height: 10vh;
@@ -152,7 +155,6 @@ const StyledPreview = styled.div`
   overflow-y: scroll;
   left: 0;
   bottom: 130px;
-  backgroundcolor: green;
   flex-direction: column;
   height: 10em;
   width: 100%;

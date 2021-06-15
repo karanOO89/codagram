@@ -19,8 +19,9 @@ import MultiImageUpload from "../upload/multiImageUpload";
 
 const useStyles = makeStyles((theme) => ({
   dialogPaper: {
-    minHeight: "90vh",
-    minWidth: "120vh",
+    backgroundColor: "#424242",
+    minHeight: "70vh",
+    minWidth: "90vh",
     // maxWidth: "120vh",
   },
 }));

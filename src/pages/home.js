@@ -8,7 +8,7 @@ import FilterToolBar from "../components/filter/filterToolBar";
 export default function Home(props) {
   const [postData, setPostData] = useState([]);
   const [commentData, setCommentData] = useState([]);
-  const [markdown, setMarkdown] = useState("sup");
+  const [markdown, setMarkdown] = useState("type here...");
   const [commentMarkdown, setCommentMarkdown] = useState("");
   //[{id:"",favComment:""}]
 

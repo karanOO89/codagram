@@ -161,7 +161,7 @@ export default function PostDialog(props) {
       },
     }).then((res) => {
       props.setPostData((prev) => [...prev, res.data])
-      props.setMarkdown("")
+      props.setMarkdown("type here...")
       setFiles([])
      
       handleClose();  
