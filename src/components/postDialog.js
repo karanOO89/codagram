@@ -160,10 +160,10 @@ export default function PostDialog(props) {
         "Content-Type": "multipart/form-data",
       },
     }).then((res) => {
-      console.log("resssssssssssDDDDDDDDDDDDdaaaaaaaaaaa",res.data)
       props.setPostData((prev) => [...prev, res.data])
+      props.setMarkdown("")
+      setFiles([])
      
-      // window.location.reload();
       handleClose();  
     })
    

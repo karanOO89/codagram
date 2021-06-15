@@ -59,18 +59,10 @@ const DialogTitle = withStyles(styles)((props) => {
 const DialogContent = withStyles((theme) => ({
   root: {
     padding: theme.spacing(2),
-    // position: 'absolute',
-    // // left: 10,
-    // height:"300px",
-    // width:"100%",
-    // bottom: 80
+   
   },
   editor: {
-    // position: "absolute",
-    // // left: 10,
-    // height: "300px",
-    // width: "100%",
-    // bottom: 80,
+ 
   },
 }))(MuiDialogContent);
 
@@ -137,6 +129,7 @@ const PostThreadDialog = (props) => {
       },
     }).then((res) => {
       props.setCommentData((prev) => [...prev, res.data]);
+      props.setCommentMarkdown("")
     });
   };
   useEffect(() => {
