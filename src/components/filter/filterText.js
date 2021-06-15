@@ -2,9 +2,12 @@ import TextField from "@material-ui/core/TextField";
 import { useState, useEffect } from "react";
 import "./filterText.scss";
 import axios from "axios";
+import { withStyles } from "@material-ui/core/styles";
 // import { Redirect } from "react-router-dom";
 import React from "react";
+import { color } from "@material-ui/system";
 // import { useHistory } from "react-router-dom";
+
 
 const FilterText = (props) => {
 	//   const history = useHistory();
@@ -22,8 +25,8 @@ const FilterText = (props) => {
 	};
 
 	return (
-		<div className='search' style={{ color: "#bdbdbd" }}>
-			<form onSubmit={handleSearch}>
+		<form onSubmit={handleSearch}>
+			<div className='search' style={{ backgroundColor: "#bdbdbd" }}>
 				<TextField
 					id='search'
 					label='Search'
@@ -32,9 +35,9 @@ const FilterText = (props) => {
 						props.setQuery(e.target.value);
 					}}
 				/>
-				<input type='submit' hidden></input>
-			</form>
-		</div>
+			</div>
+			<input type='submit' hidden></input>
+		</form>
 	);
 };
 export default FilterText;

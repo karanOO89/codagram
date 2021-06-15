@@ -25,7 +25,7 @@ export default FormTextfield;
 
 const StyledApp = styled.div`
   display: flex;
-  
+  background-color: #212121;
   flex-direction: column;
   justify-content:space-between;
   align-items-center;
@@ -46,25 +46,28 @@ const StyledApp = styled.div`
 `;
 
 const StyledEditor = styled.div`
-  background: #efefef;
+  background: #212121;
   position: absolute;
   left: 0;
   bottom: 20px;
 
   width: 100%;
   textarea {
+    background-color: #212121;
     width: 100%;
     padding: 5px;
     height: 10vh;
     border-radius: 5px;
     border: 1px solid #e2e2e2;
     resize: none;
+    color: #e2e2e2;
   }
 `;
 
 const StyledPreview = styled.div`
   display: flex;
   flex-direction: column;
+  align-content: flex-start;
   background: #b4d4f2;
   height: 100%;
   width: 100%;

@@ -18,6 +18,7 @@ import { ContentState } from "react-draft-wysiwyg";
 
 const useStyles = makeStyles((theme) => ({
   dialogPaper: {
+    backgroundColor: '#212121',
     minHeight: "50vh",
     minWidth: "80vh",
   },
