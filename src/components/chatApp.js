@@ -34,7 +34,7 @@ function ChatApp() {
 	return (
 		<div className='App'>
 			<header>
-				<h1>⚛️🔥💬</h1>
+				<h3>CODAGRAM</h3>
 				<SignOut />
 			</header>
 
@@ -105,7 +105,7 @@ function ChatRoom() {
 				<span ref={dummy}></span>
 			</main>
 
-			<form onSubmit={sendMessage}>
+			<form class='chatAppText' onSubmit={sendMessage}>
 				<input
 					value={formValue}
 					onChange={(e) => setFormValue(e.target.value)}

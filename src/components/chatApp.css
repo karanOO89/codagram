@@ -8,7 +8,7 @@ body {
   max-width: 728px;
   margin: 0 auto;
   height: 500px;
-  width: 500px;
+  width: 700px;
 }
 
 .App header {
@@ -31,14 +31,14 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 40vh;
-  background-color: rgb(40, 37, 53);
-  width: 500px;
+  background-color: #333333;
+  height: 500px;
+  width: 700px;
 }
 
 main {
   padding: 10px;
-  height: 70vh;
+  height: 30vh;
   margin: 1vh 0 1vh;
   overflow-y: scroll;
   display: flex;
@@ -57,21 +57,23 @@ main::-webkit-scrollbar-thumb {
   background: #6649b8;
 }
 
-form {
-  height: 10vh;
+form > .chatAppText {
+display: flex;
+flex-direction: row;
 }
 
 form button {
   width: 20%;
-  background-color: rgb(56, 56, 143);
+  background-color: #00a152;
 }
 
 
 input {
-  line-height: 1.5;
-  width: 100%;
+  line-height: 3.7rem;
+  width: 80%;
   font-size: 1.5rem;
-  background: rgb(58, 58, 58);
+  background: #424242
+  ;
   color: #bdbdbd;
   outline: none;
   border: none;
@@ -79,7 +81,7 @@ input {
 }
 
 button {
-  background-color: #282c34; /* Green */
+  background-color: #00a152; /* Green */
   border: none;
   color: white;
   padding: 15px 32px;
@@ -93,6 +95,7 @@ button {
 button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+  background-color: #00a152; /* Green */
 }
 
 
@@ -134,7 +137,7 @@ p {
 
 .sent p {
   color: white;
-  background: #0b93f6;
+  background: #2C387E;
   align-self: flex-end;
 }
 .received p {
