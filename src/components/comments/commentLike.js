@@ -10,6 +10,7 @@ const CommentLike = (props) => {
   console.log("props trending comment ", props.comment);
 
   const voteAdd = () => {
+    setVoteState(true)
     let id = props.id;
     const Url = `/comment/${id}`;
     console.log(vote);
@@ -22,7 +23,8 @@ const CommentLike = (props) => {
         // console.log("voteee", res.data.vote);
         setVote(res.data.votes);
         setVoteState(res.data.vote_state);
-      }).then((res) => {
+      })
+      .then((res) => {
         axios.put(`/post/${props.post_id}/favComment`).then((res) => {
           console.log(res.data);
           props.setTrendingComment(res.data);
@@ -31,6 +33,7 @@ const CommentLike = (props) => {
   };
 
   const voteDelete = async () => {
+    setVoteState(false)
     let id = props.id;
     let user_id = props.user_id;
     const Url = `/comment/${id}`;
@@ -46,11 +49,11 @@ const CommentLike = (props) => {
           setVote(res.data.votes);
           setVoteState(res.data.vote_state);
         }
-      }).then((res) => {
+      })
+      .then((res) => {
         axios.put(`/post/${props.post_id}/favComment`).then((res) => {
           console.log(res.data);
           props.setTrendingComment(res.data);
-
         });
       });
   };
@@ -60,19 +63,21 @@ const CommentLike = (props) => {
     >
       <label style={{ fontStyle: "italic" }}>Votes</label>
       <div>{vote}</div>
-      {voteState === true ? (
-        <div>
-          <Link onClick={voteDelete}>
-            <ThumbDownAltOutlinedIcon color="secondary" fontSize="small" />
-          </Link>
-        </div>
-      ) : (
-        <div>
-          <Link onClick={voteAdd}>
-            <ThumbUpAltOutlinedIcon fontSize="small" color="primary" />
-          </Link>
-        </div>
-      )}
+      <div>
+        {voteState === true ? (
+          <div>
+            <Link onClick={voteDelete}>
+              <ThumbDownAltOutlinedIcon color="secondary" fontSize="small" />
+            </Link>
+          </div>
+        ) : (
+          <div>
+            <Link onClick={voteAdd}>
+              <ThumbUpAltOutlinedIcon fontSize="small" color="primary" />
+            </Link>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

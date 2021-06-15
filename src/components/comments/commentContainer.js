@@ -9,7 +9,7 @@ const CommentContainer = (props) => {
   // console.log("commmmmeeennnttss", props.commentData);
   const comments = props.commentData
     .slice(0)
-    .reverse()
+    // .reverse()
     .map((comment, i) => {
       if (i % 2 === 0) {
         return (
@@ -47,6 +47,7 @@ const CommentContainer = (props) => {
       style={{
         display: "flex",
         width: "100%",
+        flexDirection:"column-reverse",
         // height: "56em",
         flexDirection: "column",
         justifyContent: " space-between",
@@ -55,6 +56,8 @@ const CommentContainer = (props) => {
       <div
         className="displayComment"
         style={{
+          // display:"flex",
+         
           width: "100%",
           wordWrap: "break-word",
           height: "200px",
