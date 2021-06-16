@@ -1,5 +1,5 @@
-import ThumbDownAltOutlinedIcon from "@material-ui/icons/ThumbDownAltOutlined";
-import ThumbUpAltOutlinedIcon from "@material-ui/icons/ThumbUpAltOutlined";
+import ThumbDownAltIcon from "@material-ui/icons/ThumbDownAlt";
+import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
 import Link from "@material-ui/core/Link";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
@@ -61,19 +61,19 @@ const CommentLike = (props) => {
     <div
       style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
     >
-      <label style={{ fontStyle: "italic" }}>Votes</label>
-      <div>{vote}</div>
+      <label style={{ fontStyle: "italic" ,opacity:".7",color:"white"}}>Votes</label>
+      <div style={{color:"white",opacity:".7"}}>{vote}</div>
       <div>
         {voteState === true ? (
-          <div>
+          <div >
             <Link onClick={voteDelete}>
-              <ThumbDownAltOutlinedIcon color="secondary" fontSize="small" />
+              <ThumbDownAltIcon style={{color:"red",opacity:".5"}}fontSize="small" />
             </Link>
           </div>
         ) : (
-          <div>
+          <div >
             <Link onClick={voteAdd}>
-              <ThumbUpAltOutlinedIcon fontSize="small" color="primary" />
+              <ThumbUpAltIcon style={{color:"green",opacity:".5"}}fontSize="small" />
             </Link>
           </div>
         )}

@@ -5,7 +5,7 @@ import "./postNav.scss";
 
 const PostNav = (props) => {
 	return (
-		<div className='postNav'>
+		<div className='postNav' style ={ { backgroundImage: "url('postTopNav.jpg')" } }>
 			<div>
 				<UserInfo userInfo={props.userInfo} />
 			</div>

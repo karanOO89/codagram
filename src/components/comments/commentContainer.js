@@ -15,7 +15,7 @@ const CommentContainer = (props) => {
         return (
           <div
             style={{
-              backgroundColor: "#616161",
+              backgroundColor: "#212121",
             }}
           >
             <Comment
@@ -29,7 +29,7 @@ const CommentContainer = (props) => {
         return (
           <div
             style={{
-              backgroundColor: "#757575",
+              backgroundColor: "#424242",
             }}
           >
             <Comment
@@ -47,7 +47,7 @@ const CommentContainer = (props) => {
       style={{
         display: "flex",
         width: "100%",
-        flexDirection:"column-reverse",
+        flexDirection: "column-reverse",
         // height: "56em",
         flexDirection: "column",
         justifyContent: " space-between",
@@ -57,10 +57,10 @@ const CommentContainer = (props) => {
         className="displayComment"
         style={{
           // display:"flex",
-         
+
           width: "100%",
           wordWrap: "break-word",
-          height: "200px",
+          height: "20px",
           bottom: "550px",
         }}
       >
@@ -69,7 +69,7 @@ const CommentContainer = (props) => {
       <div
         style={{
           width: "0em",
-          height: "10em",
+          minHeight: "20em",
           // marginBottom: "0px",
           // position: "fixed",
           // bottom: "80px",
@@ -81,10 +81,7 @@ const CommentContainer = (props) => {
           <StyledPreview>
             <div
               className="preview"
-              style={{
-                backgroundColor: '#212121',
-                overflowWrap: "break-word",
-              }}
+              // style={{ overflowWrap: "break-word" }}
             >
               <MarkdownView markdown={props.markdown} />
             </div>
@@ -111,35 +108,39 @@ export default CommentContainer;
 
 const StyledApp = styled.div`
   display: flex;
-  background-color: #424242;
+
+  background-color: transparent;
   flex-direction: column;
   justify-content:space-between;
   align-items-center;
   width: 60vh;
-  height: 10vh;
+  height: 29vh;
   margin-top: 1em;
   
 
   div {
     flex: 1;
-    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
-  .edit{
+  // .edit{
     
-    padding-bottom:.5em;
-    postion:fixed;
-  }
+  //   padding-bottom:.5em;
+  //   postion:fixed;
+  // }
 `;
 
 const StyledEditor = styled.div`
   position: absolute;
   left: 0;
   bottom: 20px;
+  background-color: #212121;
 
   width: 100%;
   textarea {
     background-color: #212121;
-    color: white;
+    color: #bdbdbd;
+    opacity: 0.6;
     width: 100%;
     padding: 5px;
     height: 10vh;
@@ -150,18 +151,18 @@ const StyledEditor = styled.div`
 `;
 
 const StyledPreview = styled.div`
-  display: flex;
+  display: block;
   position: absolute;
+  border-top: 1px solid #212121;
   overflow-y: scroll;
-  left: 0;
+  left: 20px;
   bottom: 130px;
-  flex-direction: column;
-  height: 10em;
-  width: 100%;
+  height: 5em;
+  width: 87.8vh;
+
   overflow-wrap: break-word;
   pre {
     width: 100%;
-    // padding: px;
     overflow-x: auto;
     white-space: pre-wrap;
     white-space: -moz-pre-wrap;

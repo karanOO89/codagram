@@ -7,7 +7,8 @@ import { RichUtils } from "draft-js";
 
 const TopNav = (props) => {
 	return (
-		<div className='nav'>
+		<div className='nav'style ={ { backgroundImage: "url('backNav.jpg')" } }>
+			
 			<div>
 				<Logo />
 			</div>

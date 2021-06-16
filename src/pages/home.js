@@ -26,7 +26,7 @@ export default function Home(props) {
     <div className="App">
       <TopNav history={props.history} />
 
-      <div className="appBody">
+      <div className="appBody" >
         <div
           style={{
             display: "flex",
@@ -35,15 +35,17 @@ export default function Home(props) {
             width: "57em",
           }}
         >
-          <div className="postDialog">
-            <PostDialog
+
+          <div className="postDialog" > 
+             
+          <FilterToolBar setPostData={setPostData} />
+        </div>
+        <PostDialog
               setPostData={setPostData}
               markdown={markdown}
               setMarkdown={setMarkdown}
             />
-          </div>
-          <FilterToolBar setPostData={setPostData} />
-        </div>
+          </div> 
         <PostContainer
           postData={postData}
           commentData={commentData}

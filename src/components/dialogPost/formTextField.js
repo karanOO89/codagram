@@ -25,11 +25,11 @@ export default FormTextfield;
 
 const StyledApp = styled.div`
   display: flex;
-  background-color: #212121;
+  background-color: rgba(255, 0, 0, 0);
   flex-direction: column;
   justify-content:space-between;
   align-items-center;
-  width: 60vh;
+  width: 80vh;
   height: 50vh;
   margin-top: 1em;
   
@@ -50,10 +50,13 @@ const StyledEditor = styled.div`
   position: absolute;
   left: 0;
   bottom: 20px;
-
+  // background-image: url('postTopNav.jpg');
+  
   width: 100%;
   textarea {
+    opacity:.6;
     background-color: #212121;
+
     width: 100%;
     padding: 5px;
     height: 10vh;

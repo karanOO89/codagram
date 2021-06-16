@@ -9,6 +9,7 @@ import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
 import axios from "axios";
+import  "./postDialog.scss";
 
 import PostEditor from "./dialogPost/postEditor";
 import MultiImageUpload from "./upload/multiImageUpload";
@@ -162,7 +163,7 @@ export default function PostDialog(props) {
       },
     }).then((res) => {
       props.setPostData((prev) => [...prev, res.data])
-      props.setMarkdown("type here...")
+      props.setMarkdown("")
       setFiles([])
      
       handleClose();  
@@ -175,31 +176,35 @@ export default function PostDialog(props) {
 
 
   return (
-    <div>
+    <div >
+      <div className="postDialogBtn">
       <Button variant="outlined" style={style} onClick={handleClickOpen}>
         Add a Post
       </Button>
+
+      </div>
       <Dialog
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
         open={open}
         classes={{ paper: classes.dialogPaper }}
       >
-        <DialogTitle id="customized-dialog-title" onClose={handleClose} />
-        {/* </DialogTitle> */}
+        <DialogTitle id="customized-dialog-title" onClose={handleClose}style ={ {borderBottom:"solid 1px grey",textSize:"1px", color:"grey", backgroundImage: "url('postTopNav.jpg')" } } >
+          Add a new post
+        </DialogTitle>
 
-        <DialogContent dividers>
+        <DialogContent dividers style ={ {borderBottom:"solid 1px grey",textSize:"1px", color:"white" ,backgroundColor:"#212121"} }>
           <MultiImageUpload files={files} setFiles={setFiles} />
         </DialogContent>
 
-        <DialogContent dividers>
+        <DialogContent dividers style ={ {borderBottom:"solid 1px grey",textSize:"1px", color:"white" ,backgroundColor:"#424242"} } >
           <PostEditor
             markdown={props.markdown}
             setMarkdown={props.setMarkdown}
             textValue={textValue}
           />
         </DialogContent>
-
+        
         <DialogActions>
           <form>
             <Button autoFocus color="primary" onClick={postInsert}>

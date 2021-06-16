@@ -2,7 +2,7 @@ import React from "react";
 import ReactMarkdown from "react-markdown";
 import styled from "styled-components";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { okaidia } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { okaidia,twilight } from "react-syntax-highlighter/dist/esm/styles/prism";
 const components = {
   code({ node, inline, className, children, ...props }) {
     const match = /language-(\w+)/.exec(className || "");
@@ -10,7 +10,7 @@ const components = {
     // console.log(children)
     return !inline && match ? (
       <SyntaxHighlighter
-        style={okaidia}
+        style={twilight }
         language={match[1]}
         PreTag="div"
         children={String(children).replace(/\n$/, "")}
@@ -35,6 +35,7 @@ const MarkdownView = (props) => {
 const StyledPreview = styled.div`
   display: flex;
   flex-direction: column;
+  background-color: rgba(255, 0, 0, 0);
   // background: #b4d4f2;
   height: 100%;
   width: 100%;

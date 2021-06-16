@@ -20,7 +20,7 @@ import MultiImageUpload from "../upload/multiImageUpload";
 const useStyles = makeStyles((theme) => ({
   dialogPaper: {
     backgroundColor: "#424242",
-    minHeight: "70vh",
+    minHeight: "80vh",
     minWidth: "90vh",
     // maxWidth: "120vh",
   },
@@ -154,7 +154,7 @@ const PostThreadDialog = (props) => {
         aria-labelledby="customized-dialog-title"
         open={open}
       >
-        <DialogTitle id="customized-dialog-title" onClose={handleClose}>
+        <DialogTitle id="customized-dialog-title" onClose={handleClose} style ={ {borderBottom:"solid 1px grey",textSize:"1px", color:"white", backgroundImage: "url('postTopNav.jpg')" } }>
           Thread Comments
         </DialogTitle>
         <div className="threadDialog">

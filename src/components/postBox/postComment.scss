@@ -1,5 +1,5 @@
 .postComment {
-    display: flex;
+    
     flex-direction: column;
     width:100%;
     padding-top:.5em;
@@ -15,7 +15,12 @@
     color: #bdbdbd;
   }
   .popComment{
-    display: flex;
+    .label{
+      color: chartreuse;
+    }
+    display: block;
+    text-align: left;
+    overflow-wrap: break-word;
     padding-bottom: 1em;
     text-transform: lowercase;
     color: #bdbdbd;

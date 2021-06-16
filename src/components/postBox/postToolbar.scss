@@ -1,9 +1,11 @@
 .tool {
   display: flex;
+  
+  
   // color: aliceblue;
   justify-content: space-between;
-  padding-left: 2em;
-  padding-right: 2em;
+  padding-left: 1em;
+  padding-right: 1em;
 
   .toolUpper {
     padding-bottom: .5em;
@@ -11,7 +13,7 @@
     justify-content: space-between;
     align-items: center;
     .favTrue{
-     color: crimson;
+     color: rgba(160, 0, 0, 0.822);
     //  padding-right: 10px;
     }
     .favFalse{

@@ -1,6 +1,17 @@
 .filterToolBar{
    display: flex;
    flex-direction: row;
-   justify-content: space-evenly;
+   margin-left: 1em;
+   width:60.13em;
+   height:3.5em;
+   border-bottom: solid 5px rgb(5, 5, 5);
+   // padding-left: 5em;
+   justify-content: center;
+   align-items: center;
+   position: fixed;
+   top: 70px;
+   left:330.4999px;
+   z-index: 100;
 }
+
 

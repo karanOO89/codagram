@@ -26,7 +26,7 @@ const FilterText = (props) => {
 
 	return (
 		<form onSubmit={handleSearch}>
-			<div className='search' style={{ backgroundColor: "#bdbdbd" }}>
+			<div className='search' style={{ backgroundColor: "white" }}>
 				<TextField
 					id='search'
 					label='Search'

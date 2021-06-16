@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
-import FavoriteTwoToneIcon from "@material-ui/icons/FavoriteTwoTone";
+import FavoriteIcon from "@material-ui/icons/Favorite";
 
 import Button from "@material-ui/core/Button";
 import RestaurantTwoToneIcon from "@material-ui/icons/RestaurantTwoTone";
@@ -82,7 +82,7 @@ const PostToolbar = (props) => {
       <div className="toolUpper">
         <div className={status ? "favTrue" : "favFalse"}>
           <Link color="inherit" onClick={status ? favDelete : favInsert}>
-            <FavoriteTwoToneIcon />
+            <FavoriteIcon />
           </Link>
         </div>
       </div>
