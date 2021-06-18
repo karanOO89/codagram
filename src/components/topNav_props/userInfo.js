@@ -21,7 +21,7 @@ const UserInfo = (props) => {
           ) : props.userInfo === 2 ? (
             <Avatar src="http://t2.gstatic.com/licensed-image?q=tbn:ANd9GcQRiC-3rs87Ut8SnDEsNkuyb83WhPbCBX8vUI2PgJMmu-Yyc46KqmwEIf_11eXp" />
           ) : (
-            <Avatar src="https://variety.com/wp-content/uploads/2021/05/John-Cena.jpg?w=681&h=383&crop=1" />
+            <Avatar src="https://ca.slack-edge.com/T2G8TE2E5-UDC0C5605-7147c37e77b3-512"/>
           )}
         </Link>
         <Link size="small" color="inherit" onClick={(e) => console.log("hey")}>
@@ -29,10 +29,10 @@ const UserInfo = (props) => {
             <div class="user_text">Elon Musk</div>
           ) 
           : props.userInfo === 2 ? (
-            <div class="user_text">Mr. Tesla</div>
+            <div class="user_text">Nikola Tesla</div>
           )
           : (
-            <div class="user_text">John Cena</div>
+            <div class="user_text">Mr. Lindsay</div>
           )}
         </Link>
       </article>
