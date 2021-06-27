@@ -1,6 +1,9 @@
 #Codagram
+
 A social website (Stack-Overflow/Instagram clone), allows developers to share their thoughts/pics/codes
 An axios call been made to the backend api-https://github.com/karanOO89/codagram-backend.git (Express,node,PostgreSQL), to Insert, Update, Fetch the data (using HTTP RESTful Methods - POST,PUT,GET)
+
+![codagrampost](https://user-images.githubusercontent.com/65080348/123535323-50b52800-d6e0-11eb-8095-935d19f35459.png)
 
 Features-
 1) Editor with built-in markdown 
